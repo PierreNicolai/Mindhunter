@@ -7,12 +7,12 @@ using Jayrock.Json.Conversion;
 using System.Collections;
 using System;
 
-public class MindwaweInterface : MonoBehaviour
+public class MindwaveInterface : MonoBehaviour
 {
-    public static MindwaweInterface Instance { get; private set; }
+    public static MindwaveInterface Instance { get; private set; }
 
-    public static float lowBetaEegValue { get; private set; }
-    public static float highBetaEegValue { get; private set; }
+    public static int attentionValue { get; private set; }
+    public static int meditationValue { get; private set; }
 
     private TcpClient client;
     private Stream stream;
@@ -72,12 +72,14 @@ public class MindwaweInterface : MonoBehaviour
                     if (packet.Length == 0)
                         continue;
                     IDictionary primary = (IDictionary)JsonConvert.Import(typeof(IDictionary), packet);
-                    if (primary.Contains("eegPower"))
-                    {
-                        IDictionary eegPowers = (IDictionary)primary["eegPower"];
 
-                        lowBetaEegValue = float.Parse(eegPowers["lowBeta"].ToString());
-                        highBetaEegValue = float.Parse(eegPowers["highBeta"].ToString());
+                    if (primary.Contains("eSense"))
+                    {
+                        IDictionary eSense = (IDictionary)primary["eSense"];
+
+                        attentionValue = int.Parse(eSense["attention"].ToString());
+                        meditationValue = int.Parse(eSense["meditation"].ToString());
+                        Debug.Log("Attention value : " + attentionValue);
                     }
                 }
             }
