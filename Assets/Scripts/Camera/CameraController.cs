@@ -141,13 +141,6 @@ public class CameraController : MonoBehaviour
         orbit.yRotation += hOrbitInput * orbit.hOrbitSmooth * Time.deltaTime;
 
         orbit.xRotation = Mathf.Clamp(orbit.xRotation, orbit.minXRotation, orbit.maxXRotation);
-//		if(orbit.xRotation  > orbit.maxXRotation) {
-//			orbit.xRotation =  orbit.maxXRotation;
-//		}
-//
-//		if(orbit.xRotation  < orbit.minXRotation) {
-//			orbit.xRotation =  orbit.minXRotation;
-//		}
     }
 
     [System.Serializable]

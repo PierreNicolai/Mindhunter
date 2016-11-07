@@ -7,7 +7,6 @@ public class Dwarf : MonoBehaviour
 {
 	public GameManagerBT manager;
 	private NavMeshAgent nav;
-	public float speed = 12f;
 	public List<Behavior> behaviors = new List<Behavior>();
 
 	private GameObject target;

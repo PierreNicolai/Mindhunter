@@ -45,11 +45,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		private void FixedUpdate ()
 		{
 			// read inputs
+            #if UNITY_EDITOR
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
-//
-//			float h = CrossPlatformInputManager.GetAxis ("Left Stick X Axis");
-//			float v = CrossPlatformInputManager.GetAxis ("Left Stick Y Axis");
+            #else 
+            float h = CrossPlatformInputManager.GetAxis ("Left Stick X Axis");
+            float v = CrossPlatformInputManager.GetAxis ("Left Stick Y Axis");
+            #endif
+
+          
 
 			bool crouch = Input.GetKey (KeyCode.C);
 

@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class FieldOfView : MonoBehaviour
 {
-
-	
 	public float viewRadius;
 	[Range (0, 360)]
 	public float viewAngle;
@@ -28,6 +26,7 @@ public class FieldOfView : MonoBehaviour
 		viewMesh = new Mesh ();
 		viewMesh.name = "View Mesh";
 		viewMeshFilter.mesh = viewMesh;
+        // Start looking for targets
 		StartCoroutine ("FindTargetsWithDelay", 0.2f);
 	}
 

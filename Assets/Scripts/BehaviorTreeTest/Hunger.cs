@@ -14,9 +14,8 @@ public class Hunger : Sequence {
 	{
 		this.m_dwarf = m_dwarf;
 		this._gameManager = _gameManager;
-
-
-		Add<Behavior>().Update = IncreaseHunger ;
+           
+		Add<Behavior>().Update = IncreaseHunger;
 		Add<Condition>().CanRun  = IsHungry;
 		Add<Behavior>().Update = LocateFood;
 
