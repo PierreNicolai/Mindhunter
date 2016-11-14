@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 8e0158b1655ec4f41a051ebe8030bb49
+timeCreated: 1477386023
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Box004
+    100004: Box005
+    100006: Object001
+    100008: pillier
+    100010: pillier001
+    100012: pillier002
+    100014: pillier003
+    100016: pillier004
+    100018: pillier005
+    100020: pillier006
+    100022: pillier007
+    100024: pillier008
+    100026: Salle A
+    100028: Salle B
+    100030: Salle B001
+    100032: Salle B002
+    100034: Salle B003
+    100036: Salle C
+    400000: //RootNode
+    400002: Box004
+    400004: Box005
+    400006: Object001
+    400008: pillier
+    400010: pillier001
+    400012: pillier002
+    400014: pillier003
+    400016: pillier004
+    400018: pillier005
+    400020: pillier006
+    400022: pillier007
+    400024: pillier008
+    400026: Salle A
+    400028: Salle B
+    400030: Salle B001
+    400032: Salle B002
+    400034: Salle B003
+    400036: Salle C
+    2300000: Box004
+    2300002: Box005
+    2300004: Object001
+    2300006: pillier
+    2300008: pillier001
+    2300010: pillier002
+    2300012: pillier003
+    2300014: pillier004
+    2300016: pillier005
+    2300018: pillier006
+    2300020: pillier007
+    2300022: pillier008
+    2300024: Salle A
+    2300026: Salle B
+    2300028: Salle B001
+    2300030: Salle B002
+    2300032: Salle B003
+    2300034: Salle C
+    3300000: Box004
+    3300002: Box005
+    3300004: Object001
+    3300006: pillier
+    3300008: pillier001
+    3300010: pillier002
+    3300012: pillier003
+    3300014: pillier004
+    3300016: pillier005
+    3300018: pillier006
+    3300020: pillier007
+    3300022: pillier008
+    3300024: Salle A
+    3300026: Salle B
+    3300028: Salle B001
+    3300030: Salle B002
+    3300032: Salle B003
+    3300034: Salle C
+    4300000: Salle A
+    4300002: Salle C
+    4300004: Salle B
+    4300006: Box004
+    4300008: Salle B001
+    4300010: pillier
+    4300012: pillier001
+    4300014: pillier002
+    4300016: pillier003
+    4300018: Salle B002
+    4300020: Salle B003
+    4300022: pillier004
+    4300024: Object001
+    4300026: pillier005
+    4300028: pillier006
+    4300030: pillier007
+    4300032: pillier008
+    4300034: Box005
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
