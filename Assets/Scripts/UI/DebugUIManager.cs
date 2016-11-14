@@ -15,7 +15,7 @@ public class DebugUIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Debug.Log("Mindwave value : " + MindwaveInterface.attentionValue);
-        fillImage.fillAmount = (float)MindwaveInterface.meditationValue / 100;
-        meditationValue.text = MindwaveInterface.meditationValue.ToString();
+        fillImage.fillAmount = (float)MindwaveInterface.attentionValue / 100;
+        meditationValue.text = MindwaveInterface.attentionValue.ToString();
 	}
 }
