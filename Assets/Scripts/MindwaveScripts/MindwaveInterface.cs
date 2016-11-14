@@ -45,7 +45,7 @@ public class MindwaveInterface : MonoBehaviour
             byte[] inputBuffer = Encoding.ASCII.GetBytes(@"{""enableRawOutput"": true, ""format"": ""Json""}");
             stream.Write(inputBuffer, 0, inputBuffer.Length);
 
-            InvokeRepeating("ReadData", 0.1f, 0.02f);
+            InvokeRepeating("ReadData", 0.1f, 0.1f);
         }
     }
 
