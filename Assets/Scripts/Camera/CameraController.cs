@@ -143,6 +143,7 @@ public class CameraController : MonoBehaviour
         orbit.xRotation = Mathf.Clamp(orbit.xRotation, orbit.minXRotation, orbit.maxXRotation);
     }
 
+    // Handle collisions of the camera
     [System.Serializable]
     public class CollisionHandler
     {

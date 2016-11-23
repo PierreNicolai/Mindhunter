@@ -12,21 +12,27 @@ public class Patrol : Sequence {
     public Patrol(Enemy _enemy, FieldOfView _fieldOfView) {
         enemy = _enemy;
         fieldOfView = _fieldOfView;
-        Add<Behavior>().Update = MoveAround;
-        Add<Condition>().CanRun = IsTargetInSight;
-        Add<Behavior>().Update = MoveToTarget;
+
+        Add<Behavior>().Update = FollowPath;
+        var selector = Add<Sequence>();
+        selector.Add<Condition>().CanRun = IsTargetInSight;
+        selector.Add<Behavior>().Update = MoveToTarget;
     } 
 
-    Status MoveAround() {
+    Status FollowPath() {
+        Debug.Log("FollowPath");
         return Status.BhSuccess;
     }
     
-    bool IsTargetInSight() {        
-        return fieldOfView != null  && fieldOfView.visibleTargets != null  &&  fieldOfView.visibleTargets.Count > 0;
+    bool IsTargetInSight() {
+//        return fieldOfView != null  && fieldOfView.visibleTargets != null  &&  fieldOfView.visibleTargets.Count > 0;
+        return enemy.targetOnSight;
     }
 
     Status MoveToTarget() {
-        enemy.followingPath = false;
+        Debug.Log("MoveToTarget");
         return Status.BhSuccess;
     }        
+
+
 }

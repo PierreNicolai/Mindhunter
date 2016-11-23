@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour
 {
-
+    // Debug purposes to delete
+    public bool targetOnSight;
     public List<Transform> path;
 
     [HideInInspector]
@@ -14,17 +15,15 @@ public class Enemy : MonoBehaviour
     public List<Behavior> behaviors = new List<Behavior>();
     //Handle vision
     FieldOfView fieldOfView;
-    //Next target
-    Transform target;
     //Nav agent
     NavMeshAgent navAgent;
     //distance offset
     float distanceOffset = 0.2f;
     int targetIndex;
 
-
     void Start()
     {
+        followingPath = true;
         targetIndex = 0;       
         fieldOfView = GetComponent<FieldOfView>();
         navAgent = GetComponent<NavMeshAgent>();
@@ -33,7 +32,7 @@ public class Enemy : MonoBehaviour
     }
 
     void Update()
-    {
+    {  
         foreach (var behavior in behaviors)
         {
             behavior.Tick();
@@ -46,11 +45,15 @@ public class Enemy : MonoBehaviour
             navAgent.SetDestination(postion);
     }
 
+    // Simple follow path
     IEnumerator FollowPath()
     {
         Vector3 currentWaypoint = path[0].position;
         while (true)
-        {            
+        {
+            if(!followingPath)
+                break;
+                           
             if (Vector3.Distance(transform.position, currentWaypoint) < distanceOffset)
             {
                 targetIndex++;
@@ -65,6 +68,5 @@ public class Enemy : MonoBehaviour
             yield return null;    
         }
 
-    }
-        
+    }       
 }
