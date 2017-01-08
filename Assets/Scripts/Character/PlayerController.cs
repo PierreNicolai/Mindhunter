@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	Vector3 velocity;
 	Rigidbody rgdb;
-	bool isGrounded;
+	public bool isGrounded;
 	public float groundCheckDistance;
 	public float jumpPower;
 	// Use this for initialization
@@ -19,9 +19,11 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized * speed;	
-		if(Input.GetButtonDown("Jump")) {
+		CheckGroundStatus();
+		if(Input.GetButtonDown("Jump") && isGrounded) {
 			rgdb.velocity = new Vector3(rgdb.velocity.x, jumpPower, rgdb.velocity.z);
 		}
+
 	}
 
 	void FixedUpdate() {
