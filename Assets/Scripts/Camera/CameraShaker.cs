@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class CameraShaker : MonoBehaviour {
+public class CameraShaker : MonoBehaviour
+{
 
     private float shake = 0;
     private float shakeAmount = 1f;
     private float shakeDecrease = 0.6f;
-	
-	// Update is called once per frame
-	private void Update ()
+
+    // Update is called once per frame
+    private void Update()
     {
         if (shake > 0)
         {
@@ -16,7 +16,9 @@ public class CameraShaker : MonoBehaviour {
             shake -= Time.deltaTime * shakeDecrease;
         }
         else
+        {
             shake = 0;
+        }
     }
 
     public void Shake(float shakeIntensity)

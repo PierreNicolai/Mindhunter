@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class CollapseController : MonoBehaviour
+public class CollapseController : Target
 {
 
     public GameObject preCollapseEnvironment;
@@ -9,27 +10,9 @@ public class CollapseController : MonoBehaviour
 
     public GameObject CollapseParticles;
 
-    void Update()
+    public override void OnShot()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            print("clicked");
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
-            {
-                print("ray hit something");
-                GameObject collidedObj = hit.collider.gameObject;
-                print("it's : " + collidedObj.name);
-                if(collidedObj == this.gameObject)
-                {
-                    print("object hit, collapsing");
-                    
-                    StartCoroutine(Collapse());
-                }
-            }
-        }
-       
+        StartCoroutine(Collapse());
     }
 
     private IEnumerator Collapse()
