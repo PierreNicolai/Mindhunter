@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 696d5b189b2599c46a8b31341c8ad098
+timeCreated: 1478679097
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: grand mur003
+    100002: grand mur004
+    100004: mur006
+    100006: mur007
+    100008: pillier017
+    100010: pillier018
+    100012: pillier019
+    100014: pillier020
+    100016: //RootNode
+    100018: sol001
+    100020: sol006
+    100022: sol007
+    100024: sol009
+    100026: sol010
+    100028: sol011
+    100030: sol012
+    100032: sol013
+    100034: sol014
+    100036: StraightStair003
+    100038: StraightStair004
+    400000: grand mur003
+    400002: grand mur004
+    400004: mur006
+    400006: mur007
+    400008: pillier017
+    400010: pillier018
+    400012: pillier019
+    400014: pillier020
+    400016: //RootNode
+    400018: sol001
+    400020: sol006
+    400022: sol007
+    400024: sol009
+    400026: sol010
+    400028: sol011
+    400030: sol012
+    400032: sol013
+    400034: sol014
+    400036: StraightStair003
+    400038: StraightStair004
+    2300000: grand mur003
+    2300002: grand mur004
+    2300004: mur006
+    2300006: mur007
+    2300008: pillier017
+    2300010: pillier018
+    2300012: pillier019
+    2300014: pillier020
+    2300016: sol001
+    2300018: sol006
+    2300020: sol007
+    2300022: sol009
+    2300024: sol010
+    2300026: sol011
+    2300028: sol012
+    2300030: sol013
+    2300032: sol014
+    2300034: StraightStair003
+    2300036: StraightStair004
+    3300000: grand mur003
+    3300002: grand mur004
+    3300004: mur006
+    3300006: mur007
+    3300008: pillier017
+    3300010: pillier018
+    3300012: pillier019
+    3300014: pillier020
+    3300016: sol001
+    3300018: sol006
+    3300020: sol007
+    3300022: sol009
+    3300024: sol010
+    3300026: sol011
+    3300028: sol012
+    3300030: sol013
+    3300032: sol014
+    3300034: StraightStair003
+    3300036: StraightStair004
+    4300000: grand mur003
+    4300002: StraightStair003
+    4300004: mur006
+    4300006: sol001
+    4300008: pillier017
+    4300010: pillier018
+    4300012: pillier019
+    4300014: pillier020
+    4300016: grand mur004
+    4300018: mur007
+    4300020: StraightStair004
+    4300022: sol006
+    4300024: sol007
+    4300026: sol009
+    4300028: sol010
+    4300030: sol011
+    4300032: sol012
+    4300034: sol013
+    4300036: sol014
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

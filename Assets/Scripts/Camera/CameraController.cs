@@ -97,9 +97,11 @@ public class CameraController : MonoBehaviour
 
     void GetInput()
     {
-        hOrbitInput = CrossPlatformInputManager.GetAxis("Right Stick X Axis");
-        vOrbitInput = CrossPlatformInputManager.GetAxis("Right Stick Y Axis");
-//		hOrbitSnap = CrossPlatformInputManager.GetButtonDown("Jump");
+    	
+//        hOrbitInput = CrossPlatformInputManager.GetAxis("Right Stick X Axis");
+//        vOrbitInput = CrossPlatformInputManager.GetAxis("Right Stick Y Axis");
+ 	hOrbitInput = CrossPlatformInputManager.GetAxis("Mouse X");
+        vOrbitInput = -CrossPlatformInputManager.GetAxis("Mouse Y");
     }
 
     void MoveToTaget()
