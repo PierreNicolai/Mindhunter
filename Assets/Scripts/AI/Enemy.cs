@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     //Handle vision
     FieldOfView fieldOfView;
     //Nav agent
-    NavMeshAgent navAgent;
+    UnityEngine.AI.NavMeshAgent navAgent;
     //distance offset
     float distanceOffset = 0.2f;
     int targetIndex;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         followingPath = true;
         targetIndex = 0;       
         fieldOfView = GetComponent<FieldOfView>();
-        navAgent = GetComponent<NavMeshAgent>();
+        navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         StartCoroutine(FollowPath());
         behaviors.Add(new Patrol(this, fieldOfView));
     }

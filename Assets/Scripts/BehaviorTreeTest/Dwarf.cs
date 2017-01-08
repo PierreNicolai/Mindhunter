@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Dwarf : MonoBehaviour
 {
 	public GameManagerBT manager;
-	private NavMeshAgent nav;
+	private UnityEngine.AI.NavMeshAgent nav;
 	public List<Behavior> behaviors = new List<Behavior>();
 
 	private GameObject target;
@@ -23,7 +23,7 @@ public class Dwarf : MonoBehaviour
 	public void Start()
 	{
 		target = gameObject;
-		nav = GetComponent<NavMeshAgent>();
+		nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		behaviors.Add(new Hunger(this, manager));
 //		ResetTarget();
 	}
