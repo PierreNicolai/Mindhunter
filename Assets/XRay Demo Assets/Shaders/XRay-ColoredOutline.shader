@@ -69,8 +69,8 @@ Shader "XRay Shaders/ColoredOutline"
 			{
 				float4 color = tex2D(_MainTex, i.uv);
 //				float NdotV = 1 - dot(i.normal, i.viewDir) * 1.5;
-				color.z = _EdgeColor.z;
-				return _EdgeColor * color;
+//				color.z = _EdgeColor.z;
+				return color;
 				// * NdotV
 			}
 

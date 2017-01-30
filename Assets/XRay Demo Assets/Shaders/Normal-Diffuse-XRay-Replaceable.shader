@@ -2,47 +2,60 @@ Shader "XRay Shaders/Diffuse-XRay-Replaceable"
 {
 	Properties
 	{
-		_Color("Main Color", Color) = (1,1,1,1)
-		_EdgeColor("XRay Edge Color", Color) = (0,0,0,0)
-		_MainTex("Base (RGB)", 2D) = "white" {}
+		_Color("Color", Color) = (1,1,1,1)
+		_MainTex("Albedo", 2D) = "white" {}
+		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0.0
+		_MetallicGlossMap("Metallic", 2D) = "white" {}
+		_BumpScale("Scale", Float) = 1.0
+		_BumpMap("Normal Map", 2D) = "bump" {}
+		_EdgeColor("XRay Edge Color", Color) = (0,0,0,0)	
+		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
+		_EmissionColor("Color", Color) = (0,0,0)
+        _EmissionMap("Emission", 2D) = "white" {}
 	}
 
 	SubShader
 	{
 		Tags
 		{
-			//////////////////////////////////////////////////////////////////////////////////////////////////////
-			// In some cases, it's necessary to force XRay objects to render before the rest of the geometry	//
-			// This is so their depth info is already in the ZBuffer, and Occluding objects won't mistakenly	//
-			// write to the Stencil buffer when they shouldn't.													//
-			//																									//
-			// This is what "Queue" = "Geometry-1" is for.														//
-			// I didn't bring this up in the video because I'm an idiot.										//
-			//																									//
-			// Cheers,																							//
-			// Dan																								//
-			//////////////////////////////////////////////////////////////////////////////////////////////////////
 			"Queue" = "Geometry-1"
 			"RenderType" = "Opaque"
 			"XRay" = "ColoredOutline"
 		}
-		LOD 200
+
 
 		CGPROGRAM
-		#pragma surface surf Lambert
+		#pragma surface surf Standard	
 
-		sampler2D _MainTex;
+		  #include "UnityPBSLighting.cginc"
+
+		
 		fixed4 _Color;
+		float _Metallic;
+		float _Glossiness;
 
+		sampler2D _BumpMap;
+		sampler2D _MainTex;
+		sampler2D _MetallicGlossMap;
+		sampler2D _EmissionMap;
+        fixed4 _EmissionColor;
+       
 		struct Input {
 			float2 uv_MainTex;
+			float2 uv_BumpMap;
 		};
 
-		void surf(Input IN, inout SurfaceOutput o)
+		void surf(Input IN, inout SurfaceOutputStandard o)
 		{
 			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+			fixed4 metal = tex2D(_MetallicGlossMap, IN.uv_MainTex);
+			fixed4 emi = tex2D(_EmissionMap, IN.uv_MainTex);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
+			o.Metallic = metal * _Metallic.r;
+			o.Smoothness = metal.a * _Glossiness;
+			o.Emission = emi * _EmissionColor;
+			o.Normal = UnpackScaleNormal(tex2D(_BumpMap, IN.uv_BumpMap), 1);
 		}
 		ENDCG
 	}
