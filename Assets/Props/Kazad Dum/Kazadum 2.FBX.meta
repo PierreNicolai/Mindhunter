@@ -61,6 +61,10 @@ ModelImporter:
     100106: pillier115
     100108: sol038
     100110: sol039
+    100112: Box030
+    100114: Box031
+    100116: chaine lustre
+    100118: statue
     400000: brique065
     400002: brique066
     400004: brique067
@@ -117,6 +121,10 @@ ModelImporter:
     400106: pillier115
     400108: sol038
     400110: sol039
+    400112: Box030
+    400114: Box031
+    400116: chaine lustre
+    400118: statue
     2300000: brique065
     2300002: brique066
     2300004: brique067
@@ -172,6 +180,10 @@ ModelImporter:
     2300104: pillier115
     2300106: sol038
     2300108: sol039
+    2300110: Box030
+    2300112: Box031
+    2300114: chaine lustre
+    2300116: statue
     3300000: brique065
     3300002: brique066
     3300004: brique067
@@ -227,6 +239,10 @@ ModelImporter:
     3300104: pillier115
     3300106: sol038
     3300108: sol039
+    3300110: Box030
+    3300112: Box031
+    3300114: chaine lustre
+    3300116: statue
     4300000: Object008
     4300002: sol038
     4300004: grand mur009
@@ -282,6 +298,10 @@ ModelImporter:
     4300104: pillier113
     4300106: pillier114
     4300108: pillier115
+    4300110: Box030
+    4300112: Box031
+    4300114: chaine lustre
+    4300116: statue
   materials:
     importMaterials: 1
     materialName: 0
@@ -328,6 +348,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -338,7 +359,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1

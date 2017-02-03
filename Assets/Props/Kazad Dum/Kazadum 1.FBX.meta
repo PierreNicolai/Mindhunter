@@ -16,6 +16,8 @@ ModelImporter:
     100016: sol037
     100018: sol040
     100020: stalactite
+    100022: Box028
+    100024: Box029
     400000: grand mur007
     400002: grand mur008
     400004: //RootNode
@@ -27,6 +29,8 @@ ModelImporter:
     400016: sol037
     400018: sol040
     400020: stalactite
+    400022: Box028
+    400024: Box029
     2300000: grand mur007
     2300002: grand mur008
     2300004: mur042
@@ -37,6 +41,8 @@ ModelImporter:
     2300014: sol037
     2300016: sol040
     2300018: stalactite
+    2300020: Box028
+    2300022: Box029
     3300000: grand mur007
     3300002: grand mur008
     3300004: mur042
@@ -47,6 +53,8 @@ ModelImporter:
     3300014: sol037
     3300016: sol040
     3300018: stalactite
+    3300020: Box028
+    3300022: Box029
     4300000: stalactite
     4300002: sol037
     4300004: grand mur007
@@ -57,6 +65,8 @@ ModelImporter:
     4300014: mur043
     4300016: pillier084
     4300018: sol040
+    4300020: Box028
+    4300022: Box029
   materials:
     importMaterials: 1
     materialName: 0
@@ -103,6 +113,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -113,7 +124,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1
