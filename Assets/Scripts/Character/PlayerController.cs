@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
-using System.Collections;
+using MindHunter.Managers;
 
-public class PlayerController : MonoBehaviour {
-
-
+public class PlayerController : PersistentSingleton<PlayerController>
+{
 	public float speed;
 	Vector3 velocity;
 	Rigidbody rgdb;
 	public bool isGrounded;
 	public float groundCheckDistance;
 	public float jumpPower;
+
 	// Use this for initialization
 	void Start () {
 		isGrounded = false;

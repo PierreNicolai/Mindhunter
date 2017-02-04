@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace MindHunter.Managers
 {
@@ -31,13 +30,13 @@ namespace MindHunter.Managers
             if (instance == null)
             {
                 instance = this as T;
-                DontDestroyOnLoad(transform.gameObject);
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
                 if (this != instance)
                 {
-                    Destroy(this.gameObject);
+                    Destroy(gameObject);
                 }
             }
         }
