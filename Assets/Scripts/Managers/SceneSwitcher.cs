@@ -44,6 +44,7 @@ public class SceneSwitcher : MonoBehaviour
         yield return new WaitForSeconds(2f);
         FirstPersonController.Instance.SetMovePermissions(true);
     }
+
 }
 
 
