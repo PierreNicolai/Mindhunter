@@ -9,6 +9,13 @@ public class SceneSwitcher : MonoBehaviour
 
     private bool hasTriggered = false;
 
+    public static SceneSwitcher Instance { get; private set; }
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void OnTriggerEnter(Collider col)
     {
         if (!hasTriggered)
@@ -21,12 +28,17 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
+    public void ReloadLevel()
+    {
+        StartCoroutine(LoadScene(SceneIndex));
+    }
+
     private IEnumerator LoadScene(int index)
     {
         FirstPersonController.Instance.SetMovePermissions(false);
         UIManager.Instance.UIFadeOut();
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(index);
+        SceneManager.LoadSceneAsync(index, LoadSceneMode.Single);
         FirstPersonController.Instance.SetMovePermissions(false);
         UIManager.Instance.UIFadeIn();
         yield return new WaitForSeconds(2f);
