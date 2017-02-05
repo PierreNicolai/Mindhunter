@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -42,9 +41,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        public static FirstPersonController Instance { get; private set; }
+
+        private bool CanWalk;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        public void SetMovePermissions(bool canWalk)
+        {
+            CanWalk = canWalk;
+        }
+
         // Use this for initialization
         private void Start()
         {
+            CanWalk = true;
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -215,7 +229,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            if (CanWalk)
+                speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            else
+                speed = 0;
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 using System.Collections;
 
 public class SceneSwitcher : MonoBehaviour
@@ -22,8 +23,14 @@ public class SceneSwitcher : MonoBehaviour
 
     private IEnumerator LoadScene(int index)
     {
-        AsyncOperation task = SceneManager.LoadSceneAsync(index);
-        yield return task;
+        FirstPersonController.Instance.SetMovePermissions(false);
+        UIManager.Instance.UIFadeOut();
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(index);
+        FirstPersonController.Instance.SetMovePermissions(false);
+        UIManager.Instance.UIFadeIn();
+        yield return new WaitForSeconds(2f);
+        FirstPersonController.Instance.SetMovePermissions(true);
     }
 }
 
