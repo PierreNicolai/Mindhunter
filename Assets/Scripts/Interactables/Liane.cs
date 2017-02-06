@@ -7,6 +7,6 @@ public class Liane : Target {
 
     public override void OnShot()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
