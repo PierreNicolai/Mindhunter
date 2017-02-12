@@ -51,9 +51,11 @@ public class Enemy : MonoBehaviour
         Vector3 currentWaypoint = path[0].position;
         while (true)
         {
+            
             if(!followingPath)
                 break;
-                           
+//            Debug.Log("FollowPath" + currentWaypoint);      
+            Debug.Log("Distance"+Vector3.Distance(transform.position, currentWaypoint));        
             if (Vector3.Distance(transform.position, currentWaypoint) < distanceOffset)
             {
                 targetIndex++;

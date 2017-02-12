@@ -20,7 +20,7 @@ public class Patrol : Sequence {
     } 
 
     Status FollowPath() {
-        Debug.Log("FollowPath");
+//        Debug.Log("FollowPath");
         return Status.BhSuccess;
     }
     
