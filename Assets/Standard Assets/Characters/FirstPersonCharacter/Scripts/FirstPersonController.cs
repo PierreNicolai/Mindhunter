@@ -40,16 +40,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-
-        public static FirstPersonController Instance { get; private set; }
-
+        
         private bool CanWalk;
-
-        private void Awake()
-        {
-            Instance = this;
-        }
-
+       
         public void SetMovePermissions(bool canWalk)
         {
             CanWalk = canWalk;

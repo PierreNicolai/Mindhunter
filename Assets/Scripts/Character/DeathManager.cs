@@ -6,7 +6,7 @@ public class DeathManager : MonoBehaviour
     {
         if(col.tag == "Lethal")
         {
-            SceneSwitcher.Instance.ReloadLevel();
+            SpawnManager.Instance.Respawn();
         }
     }
 }

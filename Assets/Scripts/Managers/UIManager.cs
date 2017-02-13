@@ -1,6 +1,4 @@
 ﻿using MindHunter.Managers;
-using UnityEngine.UI;
-using System.Collections;
 using UnityEngine;
 
 public class UIManager : PersistentSingleton<UIManager>
