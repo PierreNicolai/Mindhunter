@@ -9,12 +9,12 @@ namespace MindHunter.Managers
         public GameObject[] PlatesOrder;
 
         private List<GameObject> GoodPlatesList;
-        
+
         public void Start()
         {
             GoodPlatesList = PlatesOrder.ToList();
         }
-       
+
         public void PlateTriggered(GameObject plate)
         {
             if (!GoodPlatesList.Contains(plate))
