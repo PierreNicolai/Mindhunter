@@ -7,22 +7,28 @@ public class SpawnPoint : MonoBehaviour {
     public GameObject prefabToReload;  
 
 
-    void Awake() {
-//        prefabToReload = Instantiate(newPrefabInstance);
-    }
 	void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
+            print("New spawn defined : " + gameObject.name);
             SpawnManager.Instance.currentSpawn = this;
         }
     }
 
-   
     public virtual void UpdatePrefabs()
     {
-        Vector3 instanciationPosition = prefabToReload.transform.position;
-        DestroyImmediate(prefabToReload, true);
-        prefabToReload =  Instantiate(newPrefabInstance, instanciationPosition, Quaternion.identity);       
-    } 
+        prefabToReload = ReloadPrefab(prefabToReload, newPrefabInstance, true);   
+    }
+    
+    protected GameObject ReloadPrefab(GameObject currentPrefab, GameObject newPrefab, bool visibleOnInstanciation)
+    {
+        Vector3 instanciationPosition = currentPrefab.transform.position;
+        Quaternion instanciationRotation = currentPrefab.transform.rotation;
+        DestroyImmediate(currentPrefab, true);
+        currentPrefab = Instantiate(newPrefab, instanciationPosition, Quaternion.identity);
+        currentPrefab.transform.localRotation = instanciationRotation;
+        currentPrefab.SetActive(visibleOnInstanciation);
+        return currentPrefab;
+    }
 }
