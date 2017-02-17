@@ -1,0 +1,397 @@
+fileFormatVersion: 2
+guid: e83a80e63e58a466082a9dacd5091f90
+timeCreated: 1487332156
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: AR_D_01
+    100002: AR_D_02
+    100004: AR_D_03
+    100006: AR_D_04
+    100008: AR_D_05
+    100010: AR_D_06
+    100012: AR_G_01
+    100014: AR_G_02
+    100016: AR_G_03
+    100018: AR_G_04
+    100020: AR_G_05
+    100022: AR_G_06
+    100024: AV_D_01
+    100026: AV_D_02
+    100028: AV_D_03
+    100030: AV_D_04
+    100032: AV_D_05
+    100034: AV_D_05 1
+    100036: AV_G_01
+    100038: AV_G_02
+    100040: AV_G_03
+    100042: AV_G_04
+    100044: bassin_bone
+    100046: bouche_bone
+    100048: buste_bone_01
+    100050: buste_bone_02
+    100052: Circle001
+    100054: Circle002
+    100056: corps_bone
+    100058: cou_bone
+    100060: CTRL_AR_D
+    100062: CTRL_AR_D 1
+    100064: CTRL_AV_D
+    100066: CTRL_AV_G
+    100068: CTRL_bassin
+    100070: CTRL_buste
+    100072: CTRL_cou
+    100074: CTRL_epaule_D
+    100076: CTRL_epaule_G
+    100078: CTRL_global
+    100080: CTRL_hanche_D
+    100082: CTRL_hanche_G
+    100084: CTRL_total
+    100086: GEO_woot
+    100088: IK Chain001
+    100090: IK Chain002
+    100092: IK Chain004
+    100094: IK Chain005
+    100096: IK Chain006
+    100098: IK Chain007
+    100100: IK Chain008
+    100102: IK Chain009
+    100104: IK Chain012
+    100106: IK Chain013
+    100108: IK Chain015
+    100110: IK Chain016
+    100112: IK Chain017
+    100114: IK Chain018
+    100116: IK Chain019
+    100118: IK Chain020
+    100120: IK Chain021
+    100122: queue_bone_01
+    100124: queue_bone_02
+    100126: queue_bone_03
+    100128: queue_bone_04
+    100130: queue_bone_05_D_01
+    100132: queue_bone_05_D_02
+    100134: queue_bone_05_G_01
+    100136: queue_bone_05_G_02
+    100138: tete_bone_01
+    100140: tete_bone_02
+    100142: //RootNode
+    400000: AR_D_01
+    400002: AR_D_02
+    400004: AR_D_03
+    400006: AR_D_04
+    400008: AR_D_05
+    400010: AR_D_06
+    400012: AR_G_01
+    400014: AR_G_02
+    400016: AR_G_03
+    400018: AR_G_04
+    400020: AR_G_05
+    400022: AR_G_06
+    400024: AV_D_01
+    400026: AV_D_02
+    400028: AV_D_03
+    400030: AV_D_04
+    400032: AV_D_05
+    400034: AV_D_05 1
+    400036: AV_G_01
+    400038: AV_G_02
+    400040: AV_G_03
+    400042: AV_G_04
+    400044: bassin_bone
+    400046: bouche_bone
+    400048: buste_bone_01
+    400050: buste_bone_02
+    400052: Circle001
+    400054: Circle002
+    400056: corps_bone
+    400058: cou_bone
+    400060: CTRL_AR_D
+    400062: CTRL_AR_D 1
+    400064: CTRL_AV_D
+    400066: CTRL_AV_G
+    400068: CTRL_bassin
+    400070: CTRL_buste
+    400072: CTRL_cou
+    400074: CTRL_epaule_D
+    400076: CTRL_epaule_G
+    400078: CTRL_global
+    400080: CTRL_hanche_D
+    400082: CTRL_hanche_G
+    400084: CTRL_total
+    400086: GEO_woot
+    400088: IK Chain001
+    400090: IK Chain002
+    400092: IK Chain004
+    400094: IK Chain005
+    400096: IK Chain006
+    400098: IK Chain007
+    400100: IK Chain008
+    400102: IK Chain009
+    400104: IK Chain012
+    400106: IK Chain013
+    400108: IK Chain015
+    400110: IK Chain016
+    400112: IK Chain017
+    400114: IK Chain018
+    400116: IK Chain019
+    400118: IK Chain020
+    400120: IK Chain021
+    400122: queue_bone_01
+    400124: queue_bone_02
+    400126: queue_bone_03
+    400128: queue_bone_04
+    400130: queue_bone_05_D_01
+    400132: queue_bone_05_D_02
+    400134: queue_bone_05_G_01
+    400136: queue_bone_05_G_02
+    400138: tete_bone_01
+    400140: tete_bone_02
+    400142: //RootNode
+    4300000: GEO_woot
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: GEO_woot
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CTRL_total
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D/Circle002
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D/Circle002/IK Chain008
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D/IK Chain009
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D/IK Chain012
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D 1
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D 1/Circle001
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D 1/Circle001/IK Chain006
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D 1/IK Chain007
+        weight: 1
+      - path: CTRL_total/CTRL_AR_D 1/IK Chain013
+        weight: 1
+      - path: CTRL_total/CTRL_AV_D
+        weight: 1
+      - path: CTRL_total/CTRL_AV_D/IK Chain018
+        weight: 1
+      - path: CTRL_total/CTRL_AV_D/IK Chain019
+        weight: 1
+      - path: CTRL_total/CTRL_AV_G
+        weight: 1
+      - path: CTRL_total/CTRL_AV_G/IK Chain015
+        weight: 1
+      - path: CTRL_total/CTRL_AV_G/IK Chain016
+        weight: 1
+      - path: CTRL_total/CTRL_global
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_D_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_D_01/AR_D_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_D_01/AR_D_02/AR_D_03
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_D_01/AR_D_02/AR_D_03/AR_D_04
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_D_01/AR_D_02/AR_D_03/AR_D_04/AR_D_05
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_D_01/AR_D_02/AR_D_03/AR_D_04/AR_D_05/AR_D_06
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_G_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_G_01/AR_G_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_G_01/AR_G_02/AR_G_03
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_G_01/AR_G_02/AR_G_03/AR_G_04
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_G_01/AR_G_02/AR_G_03/AR_G_04/AR_G_05
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/AR_G_01/AR_G_02/AR_G_03/AR_G_04/AR_G_05/AR_G_06
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01/queue_bone_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01/queue_bone_02/queue_bone_03
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01/queue_bone_02/queue_bone_03/queue_bone_04
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01/queue_bone_02/queue_bone_03/queue_bone_04/queue_bone_05_D_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01/queue_bone_02/queue_bone_03/queue_bone_04/queue_bone_05_D_01/queue_bone_05_D_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01/queue_bone_02/queue_bone_03/queue_bone_04/queue_bone_05_G_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/bassin_bone/queue_bone_01/queue_bone_02/queue_bone_03/queue_bone_04/queue_bone_05_G_01/queue_bone_05_G_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_D_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_D_01/AV_D_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_D_01/AV_D_02/AV_D_03
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_D_01/AV_D_02/AV_D_03/AV_D_04
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_D_01/AV_D_02/AV_D_03/AV_D_04/AV_D_05
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_G_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_G_01/AV_G_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_G_01/AV_G_02/AV_G_03
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_G_01/AV_G_02/AV_G_03/AV_G_04
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/AV_G_01/AV_G_02/AV_G_03/AV_G_04/AV_D_05
+          1
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/buste_bone_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/buste_bone_02/cou_bone
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/buste_bone_02/cou_bone/tete_bone_01
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/buste_bone_02/cou_bone/tete_bone_01/bouche_bone
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/corps_bone/buste_bone_01/buste_bone_02/cou_bone/tete_bone_01/tete_bone_02
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/CTRL_hanche_D
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/CTRL_hanche_D/IK Chain005
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/CTRL_hanche_G
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_bassin/CTRL_hanche_G/IK Chain004
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_buste
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_buste/IK Chain017
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_cou
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_cou/IK Chain020
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_cou/IK Chain021
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_epaule_D
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_epaule_D/IK Chain002
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_epaule_G
+        weight: 1
+      - path: CTRL_total/CTRL_global/CTRL_epaule_G/IK Chain001
+        weight: 1
+      - path: GEO_woot
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

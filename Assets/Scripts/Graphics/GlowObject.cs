@@ -23,7 +23,7 @@ public class GlowObject : MonoBehaviour
         {
             _materials.AddRange(renderer.materials);
         }
-
+        Glow();
 
     }
 
