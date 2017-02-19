@@ -7,7 +7,7 @@ public class StatueController : Target {
         
     public override void OnShot()
     {
-        Lustre.GetComponent<Animator>().Play("Fall");
+        //Lustre.GetComponent<Animator>().Play("Fall");
         Destroy(chaine);
     }
 }
