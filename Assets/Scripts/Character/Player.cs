@@ -9,7 +9,6 @@ public enum PlayerVisibility
 
 public class Player : PersistentSingleton<Player>
 {
-
     public PlayerVisibility playerVisibility { get; private set; }
 
     void Start()
