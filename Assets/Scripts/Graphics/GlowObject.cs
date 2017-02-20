@@ -27,17 +27,17 @@ public class GlowObject : MonoBehaviour
 
     }
 
-    private void OnMouseEnter()
-    {
-        _targetColor = GlowColor;
-        enabled = true;
-    }
+    //private void OnMouseEnter()
+    //{
+    //    _targetColor = GlowColor;
+    //    enabled = true;
+    //}
 
-    private void OnMouseExit()
-    {
-        _targetColor = Color.black;
-        enabled = true;
-    }
+    //private void OnMouseExit()
+    //{
+    //    _targetColor = Color.black;
+    //    enabled = true;
+    //}
 
     /// <summary>
     /// Loop over all cached materials and update their color, disable self if we reach our target color.

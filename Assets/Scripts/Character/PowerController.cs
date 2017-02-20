@@ -14,7 +14,7 @@ public class PowerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetButtonDown("Power")) {
+		if(Input.GetKeyDown(KeyCode.A)) {
 			if(!xray) {
 				XRayScript.SetActive(true);
 				xray = true;
@@ -22,6 +22,7 @@ public class PowerController : MonoBehaviour {
 				XRayScript.SetActive(false);
 				xray = false;
 			}
+
 		}
 	}
 
