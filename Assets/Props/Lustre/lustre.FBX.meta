@@ -3,13 +3,61 @@ guid: f950182c9b2880242923c8f5e4565270
 timeCreated: 1479741188
 licenseType: Free
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: attache
+    100004: Box103
+    100006: chaine
+    100008: chaine001
+    100010: chaine002
+    100012: chaine003
+    100014: quart lustre
+    100016: quart lustre001
+    100018: quart lustre002
     400000: //RootNode
+    400002: attache
+    400004: Box103
+    400006: chaine
+    400008: chaine001
+    400010: chaine002
+    400012: chaine003
+    400014: quart lustre
+    400016: quart lustre001
+    400018: quart lustre002
     2300000: //RootNode
+    2300002: attache
+    2300004: Box103
+    2300006: chaine
+    2300008: chaine001
+    2300010: chaine002
+    2300012: chaine003
+    2300014: quart lustre
+    2300016: quart lustre001
+    2300018: quart lustre002
     3300000: //RootNode
+    3300002: attache
+    3300004: Box103
+    3300006: chaine
+    3300008: chaine001
+    3300010: chaine002
+    3300012: chaine003
+    3300014: quart lustre
+    3300016: quart lustre001
+    3300018: quart lustre002
     4300000: Box025
+    4300002: chaine002
+    4300004: chaine001
+    4300006: chaine
+    4300008: chaine003
+    4300010: attache
+    4300012: quart lustre001
+    4300014: quart lustre
+    4300016: Box103
+    4300018: quart lustre002
+    7400000: Balance
+    7400002: Break
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -17,6 +65,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -24,12 +73,108 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Balance
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: attache
+        weight: 1
+      - path: Box103
+        weight: 1
+      - path: chaine
+        weight: 1
+      - path: chaine001
+        weight: 1
+      - path: chaine002
+        weight: 1
+      - path: chaine003
+        weight: 1
+      - path: quart lustre
+        weight: 1
+      - path: quart lustre001
+        weight: 1
+      - path: quart lustre002
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Break
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 114.00001
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: attache
+        weight: 1
+      - path: Box103
+        weight: 1
+      - path: chaine
+        weight: 1
+      - path: chaine001
+        weight: 1
+      - path: chaine002
+        weight: 1
+      - path: chaine003
+        weight: 1
+      - path: quart lustre
+        weight: 1
+      - path: quart lustre001
+        weight: 1
+      - path: quart lustre002
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -50,24 +195,29 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 1
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

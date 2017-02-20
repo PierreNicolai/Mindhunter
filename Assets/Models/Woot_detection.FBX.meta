@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e83a80e63e58a466082a9dacd5091f90
-timeCreated: 1487332156
+guid: e48bf19add3ae46b29ea57127d4b0335
+timeCreated: 1487583757
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -150,7 +150,7 @@ ModelImporter:
     400140: tete_bone_02
     400142: //RootNode
     4300000: GEO_woot
-    7400000: run
+    7400000: detection
     9500000: //RootNode
     11100000: //RootNode
     13700000: GEO_woot
@@ -176,10 +176,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: run
+      name: detection
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 180
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e83a80e63e58a466082a9dacd5091f90
-timeCreated: 1487332156
+guid: 5888884d8259b49b1a135688954e72ee
+timeCreated: 1487583756
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -150,7 +150,7 @@ ModelImporter:
     400140: tete_bone_02
     400142: //RootNode
     4300000: GEO_woot
-    7400000: run
+    7400000: scream
     9500000: //RootNode
     11100000: //RootNode
     13700000: GEO_woot
@@ -176,11 +176,11 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: run
+      name: scream
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 30
-      wrapMode: 2
+      lastFrame: 55
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0

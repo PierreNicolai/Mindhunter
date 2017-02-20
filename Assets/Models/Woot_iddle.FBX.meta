@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e83a80e63e58a466082a9dacd5091f90
-timeCreated: 1487332156
+guid: 00e5374d09b24457da5bad3e0a41dcb4
+timeCreated: 1487583755
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -150,7 +150,7 @@ ModelImporter:
     400140: tete_bone_02
     400142: //RootNode
     4300000: GEO_woot
-    7400000: run
+    7400000: iddle
     9500000: //RootNode
     11100000: //RootNode
     13700000: GEO_woot
@@ -176,11 +176,11 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: run
+      name: iddle
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 30
-      wrapMode: 2
+      lastFrame: 140
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
