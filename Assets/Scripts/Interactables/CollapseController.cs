@@ -9,9 +9,15 @@ public class CollapseController : Target
 
     public GameObject CollapseParticles;
 
+    public GameObject StaticLustre;
+    public GameObject AnimatedLustre;
+
     public override void OnShot()
     {
-        StartCoroutine(Collapse());
+        StaticLustre.SetActive(false);
+        AnimatedLustre.SetActive(true);
+        AnimatedLustre.GetComponent<Animator>().Play("Balance");
+        //StartCoroutine(Collapse());
     }
 
     private IEnumerator Collapse()
@@ -22,12 +28,8 @@ public class CollapseController : Target
         CollapseParticles.SetActive(true);
         //Shake effect on the camera
         Camera.main.GetComponent<CameraShaker>().Shake(3.0f);
-        //Wait 0.5s
-        yield return new WaitForSeconds(0.5f);
-        //Chadelier is now affected by gravity, let it fall
-        GetComponent<Rigidbody>().isKinematic = false;
-        //Wait 1.5s
-        yield return new WaitForSeconds(1.5f);
+        //Wait 2s
+        yield return new WaitForSeconds(2f);
         postCollapseEnvironment.SetActive(true);
         preCollapseEnvironment.SetActive(false);
     }

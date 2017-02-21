@@ -4,15 +4,24 @@ public class SpawnPoint : MonoBehaviour {
 
     [TestButton("ReloadPlates", "UpdatePrefabs", isActiveInEditor = false)]
     public GameObject newPrefabInstance;
-    public GameObject prefabToReload;  
+    public GameObject prefabToReload;
 
+    public int SpawnPointIndex;
 
 	void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            print("New spawn defined : " + gameObject.name);
-            SpawnManager.Instance.currentSpawn = this;
+            SpawnManager.Instance.SetCurrentSpawn(this);
+            SpawnManager.Instance.isSpawnTriggered = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            SpawnManager.Instance.isSpawnTriggered = false;
         }
     }
 

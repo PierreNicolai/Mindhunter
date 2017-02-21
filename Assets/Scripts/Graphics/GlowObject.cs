@@ -12,7 +12,7 @@ public class GlowObject : MonoBehaviour
     private Color _currentColor;
     private Color _targetColor;
 
-
+    public int roomIndex;
 
     /// <summary>
     /// Cache a child materials so composite object work nicely!

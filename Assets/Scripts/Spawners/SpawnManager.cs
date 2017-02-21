@@ -5,13 +5,30 @@ using UnityEngine;
 
 public class SpawnManager : PersistentSingleton<SpawnManager>
 {
-    public SpawnPoint currentSpawn;
+    public SpawnPoint currentSpawn { get; private set; }
+    public int CurrentRoom { get; private set; }
 
     private bool canRespawn;
 
+    [HideInInspector]
+    public bool isSpawnTriggered;
+
     void Start()
     {
+        isSpawnTriggered = false;
         canRespawn = true;
+        CurrentRoom = 0;
+    }
+
+    public void SetCurrentSpawn(SpawnPoint point)
+    {
+        if (!isSpawnTriggered)
+        {
+            currentSpawn = point;
+            CurrentRoom = (point.SpawnPointIndex == CurrentRoom) ? CurrentRoom - 1 : point.SpawnPointIndex;
+            print("enter in room : " + CurrentRoom);
+        }
+
     }
 
     public void Respawn()
@@ -25,7 +42,7 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
 
     private IEnumerator InvokeRespawn()
     {
-        
+
         UIManager.Instance.UIFadeOut();
         yield return new WaitForSeconds(0.5f);
         Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = false;
@@ -38,5 +55,6 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
         Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = true;
         yield return new WaitForSeconds(1f);
         canRespawn = true;
+        GlowManager.Instance.Reload();
     }
 }

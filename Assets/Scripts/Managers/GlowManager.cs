@@ -13,7 +13,17 @@ public class GlowManager : PersistentSingleton<GlowManager>
     // Use this for initialization
     void Start()
     {
-        glowObjects = FindObjectsOfType<GlowObject>().ToList();
+        Reload();
+    }
+
+    public void Reload()
+    {
+        List<GlowObject> temp = FindObjectsOfType<GlowObject>().ToList();
+       foreach(GlowObject g in temp)
+        {
+            if (g.roomIndex == SpawnManager.Instance.CurrentRoom)
+                glowObjects.Add(g);
+        }
         isGlowing = false;
     }
 
