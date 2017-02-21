@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour
 {    
+    
+    public List<AudioClip> clips;
+    private AudioSource audioSource;
     public Animator animator;
 
     public List<Transform> path;
@@ -89,7 +92,7 @@ public class Enemy : MonoBehaviour
             if(!followingPath)
                 break;
                            
-            Debug.Log("FollowPath1"+Time.deltaTime);      
+//            Debug.Log("FollowPath1"+Time.deltaTime);      
 //            Debug.Log("Distance"+Vector3.Distance(transform.position, currentWaypoint));        
             if (Vector3.Distance(transform.position, currentWaypoint) < distanceOffset)
             {
@@ -105,5 +108,6 @@ public class Enemy : MonoBehaviour
             yield return null;    
         }
 
-    }       
+    }
+          
 }
