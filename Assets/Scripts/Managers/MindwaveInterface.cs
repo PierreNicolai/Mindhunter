@@ -72,7 +72,6 @@ namespace MindHunter.Managers
 
                             attentionValue = int.Parse(eSense["attention"].ToString());
                             meditationValue = int.Parse(eSense["meditation"].ToString());
-                            //Debug.Log("Attention value : " + attentionValue);
                         }
                     }
                 }

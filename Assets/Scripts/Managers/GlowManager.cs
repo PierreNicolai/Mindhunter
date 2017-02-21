@@ -34,6 +34,8 @@ public class GlowManager : PersistentSingleton<GlowManager>
             {
                 if (g.roomIndex == SpawnManager.Instance.CurrentRoom)
                     g.Glow();
+                else
+                    g.UnGlow();
             }
         }
         else

@@ -42,7 +42,6 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
 
     private IEnumerator InvokeRespawn()
     {
-
         UIManager.Instance.UIFadeOut();
         yield return new WaitForSeconds(0.5f);
         Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = false;
@@ -50,11 +49,12 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
         currentSpawn.UpdatePrefabs();
         Player.Instance.gameObject.transform.position = currentSpawn.transform.position;
         Player.Instance.gameObject.transform.localRotation = currentSpawn.transform.rotation;
+        GlowManager.Instance.Reload();
+        CurrentRoom -= 1;
         UIManager.Instance.UIFadeIn();
         yield return new WaitForSeconds(0.5f);
         Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = true;
         yield return new WaitForSeconds(1f);
         canRespawn = true;
-        GlowManager.Instance.Reload();
     }
 }

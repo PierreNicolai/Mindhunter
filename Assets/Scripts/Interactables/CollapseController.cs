@@ -17,7 +17,7 @@ public class CollapseController : Target
         StaticLustre.SetActive(false);
         AnimatedLustre.SetActive(true);
         AnimatedLustre.GetComponent<Animator>().Play("Balance");
-        StartCoroutine(Collapse());
+        //StartCoroutine(Collapse());
     }
 
     private IEnumerator Collapse()
