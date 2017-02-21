@@ -4,7 +4,7 @@ public class CameraShaker : MonoBehaviour
 {
 
     private float shake = 0;
-    private float shakeAmount = 0.9f;
+    private float shakeAmount = 0.6f;
     private float shakeDecrease = 0.5f;
 
     // Update is called once per frame

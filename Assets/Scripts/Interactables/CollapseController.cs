@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class CollapseController : Target
 {
@@ -16,8 +18,17 @@ public class CollapseController : Target
     {
         StaticLustre.SetActive(false);
         AnimatedLustre.SetActive(true);
-        AnimatedLustre.GetComponent<Animator>().Play("Balance");
-        //StartCoroutine(Collapse());
+        StartCoroutine(LustreFall());
+        
+    }
+
+    private IEnumerator LustreFall()
+    {
+        List<Transform> lustreSubObjects = AnimatedLustre.GetComponentsInChildren<Transform>().ToList();
+        lustreSubObjects.Remove(AnimatedLustre.transform);
+        lustreSubObjects.ForEach(lso => lso.GetComponent<Rigidbody>().isKinematic = false);
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(Collapse());
     }
 
     private IEnumerator Collapse()
@@ -27,7 +38,7 @@ public class CollapseController : Target
         CollapseParticles.GetComponent<ParticleSystem>().Play();
         CollapseParticles.SetActive(true);
         //Shake effect on the camera
-        Camera.main.GetComponent<CameraShaker>().Shake(3.0f);
+        Camera.main.GetComponent<CameraShaker>().Shake(2.5f);
         //Wait 2s
         yield return new WaitForSeconds(2f);
         postCollapseEnvironment.SetActive(true);
