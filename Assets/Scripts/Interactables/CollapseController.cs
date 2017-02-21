@@ -17,7 +17,7 @@ public class CollapseController : Target
         StaticLustre.SetActive(false);
         AnimatedLustre.SetActive(true);
         AnimatedLustre.GetComponent<Animator>().Play("Balance");
-        //StartCoroutine(Collapse());
+        StartCoroutine(Collapse());
     }
 
     private IEnumerator Collapse()
@@ -32,5 +32,6 @@ public class CollapseController : Target
         yield return new WaitForSeconds(2f);
         postCollapseEnvironment.SetActive(true);
         preCollapseEnvironment.SetActive(false);
+        GlowManager.Instance.Reload();
     }
 }

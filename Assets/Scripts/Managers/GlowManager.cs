@@ -8,7 +8,7 @@ public class GlowManager : PersistentSingleton<GlowManager>
     private List<GlowObject> glowObjects = new List<GlowObject>();
     private List<GlowObject> realtimeList = new List<GlowObject>();
 
-    private bool isGlowing;
+    public bool canGlow { get; set;   }
 
     // Use this for initialization
     void Start()
@@ -18,31 +18,28 @@ public class GlowManager : PersistentSingleton<GlowManager>
 
     public void Reload()
     {
-        List<GlowObject> temp = FindObjectsOfType<GlowObject>().ToList();
-       foreach(GlowObject g in temp)
-        {
-            if (g.roomIndex == SpawnManager.Instance.CurrentRoom)
-                glowObjects.Add(g);
-        }
-        isGlowing = false;
+        glowObjects = FindObjectsOfType<GlowObject>().ToList();
+        glowObjects.ForEach(g => g.UnGlow());
+        canGlow = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (canGlow)
         {
             realtimeList = UpdateGlowList();
-            if (!isGlowing)
+            List<GlowObject> tmpList = new List<GlowObject>();
+            foreach (GlowObject g in realtimeList)
             {
-                realtimeList.ForEach(g => g.Glow());
-                isGlowing = true;
+                if (g.roomIndex == SpawnManager.Instance.CurrentRoom)
+                    g.Glow();
             }
-            else
-            {
-                realtimeList.ForEach(g => g.UnGlow());
-                isGlowing = false;
-            }
+        }
+        else
+        {
+            realtimeList = UpdateGlowList();
+            realtimeList.ForEach(g => g.UnGlow());
         }
     }
 

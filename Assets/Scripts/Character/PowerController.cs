@@ -1,29 +1,42 @@
 ﻿using UnityEngine;
-using System.Collections;
+using MindHunter.Managers;
 
-public class PowerController : MonoBehaviour {
+public class PowerController : MonoBehaviour
+{
 
-	public GameObject XRayScript;
+    public GameObject XRayScript;
 
-	bool xray;
-	// Use this for initialization
-	void Start () {
-		xray = false;
-		XRayScript.SetActive(xray);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.A)) {
-			if(!xray) {
-				XRayScript.SetActive(true);
-				xray = true;
-			}else {
-				XRayScript.SetActive(false);
-				xray = false;
-			}
+    public int attentionTrigger;
 
-		}
-	}
+    private GlowManager glowManager;
+    private MindwaveInterface mindwaveInterface;
 
+    bool xray;
+
+    // Use this for initialization
+    void Start()
+    {
+        glowManager = GlowManager.Instance;
+        mindwaveInterface = MindwaveInterface.Instance;
+        xray = false;
+        XRayScript.SetActive(xray);
+        InvokeRepeating("UpdateMindwavesValues", 0f, 3.0f);  
+    }
+
+    private void UpdateMindwavesValues()
+    {
+        print("Current attention value = " + mindwaveInterface.attentionValue);
+        if (MindwaveInterface.Instance.attentionValue >= attentionTrigger)
+        {
+            XRayScript.SetActive(true);
+            xray = true;
+            glowManager.canGlow = true;
+        }
+        else
+        {
+            XRayScript.SetActive(false);
+            xray = false;
+            glowManager.canGlow = false;
+        }
+    }
 }
