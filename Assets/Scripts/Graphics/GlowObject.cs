@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class GlowObject : MonoBehaviour
 {
+    [TestButton("Glow", "Glow", isActiveInEditor = false)]
+    [TestButton("UnGlow", "UnGlow", isActiveInEditor = false)]
     public Color GlowColor;
     public float LerpFactor = 10;
 
