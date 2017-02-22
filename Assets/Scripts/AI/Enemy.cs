@@ -4,15 +4,27 @@ using BehaviorTreeLibrary;
 using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour
-{    
-    
-    public List<AudioClip> clips;
+{
+
+    [Header("Audio clips")]
+    [Space(10)]
+    public AudioClip detectionAudio;
+    public AudioClip screamAudio;
+    public AudioClip walkingAudio;
+
     private AudioSource audioSource;
+
     public Animator animator;
 
+    [Header("Agent speed")]
+    [Space(10)]
+    public float runningSpeed;
+    public float walkingSpeed;
+
+    [Header("Wavespoints")]
     public List<Transform> path;
 
-//    [HideInInspector]
+    [HideInInspector]
     public bool followingPath;
     [HideInInspector]
     public List<Behavior> behaviors = new List<Behavior>();
@@ -24,13 +36,27 @@ public class Enemy : MonoBehaviour
     float distanceOffset = 0.2f;
     int targetIndex;
 
+    // For the animator
     bool screaming;
-    bool running;
+    bool running; 
     bool detecting;
     bool idling;
+    bool walking;
+
+
+    public float detectionTime = 2f;
+    // Behavior Tree variables
+    public bool startingDetection;
+    public bool inDection;
+    [HideInInspector]
+    public bool spoted;
+    [HideInInspector]
+    public bool targetRangeToScream;
 
     void Start()
     {
+        startingDetection = false;
+        inDection = false;
         followingPath = true;
         targetIndex = 0;       
         fieldOfView = GetComponent<FieldOfView>();
@@ -45,38 +71,22 @@ public class Enemy : MonoBehaviour
         {
             behavior.Tick();
         }       	
-        if(Input.GetKey(KeyCode.A)) {
-            ResumeEnemy();
-        }
-
-        if(Input.GetKey(KeyCode.Z) ){
-            StopEnemy();
-        }
         UpdateAnimator();
+        if(startingDetection && !inDection) {
+            inDection = true;
+            StartCoroutine(TryingToSpotPlayer(detectionTime));
+        } 
     }
 
-    public void ResumeEnemy() {
-        followingPath = true;
-        navAgent.Resume();
-        running = true;
-        idling = false;
-        StartCoroutine(FollowPath());
-    }
-
-    public void StopEnemy() {
-        StopCoroutine(FollowPath());
-        followingPath = false;
-        navAgent.Stop();
-        running = false;
-        idling = true;
-    }
     public void SetTarget(Vector3 postion)
-    {
+    {        
         if (navAgent != null)
             navAgent.SetDestination(postion);
     }
 
-    void UpdateAnimator() {
+    void UpdateAnimator()
+    {
+        animator.SetBool("walk", walking);
         animator.SetBool("run", running);
         animator.SetBool("scream", screaming);
         animator.SetBool("detection", detecting);
@@ -89,11 +99,11 @@ public class Enemy : MonoBehaviour
         Vector3 currentWaypoint = path[0].position;
         while (true)
         {                          
-            if(!followingPath)
+            if (!followingPath)
                 break;
                            
 //            Debug.Log("FollowPath1"+Time.deltaTime);      
-//            Debug.Log("Distance"+Vector3.Distance(transform.position, currentWaypoint));        
+//            Debug.Log("Distance"+Vector3.Distance(transform.position, currentWaypoint));
             if (Vector3.Distance(transform.position, currentWaypoint) < distanceOffset)
             {
                 targetIndex++;
@@ -107,7 +117,34 @@ public class Enemy : MonoBehaviour
             navAgent.SetDestination(currentWaypoint);
             yield return null;    
         }
-
     }
-          
+
+    public void ResumeAI()
+    {
+        followingPath = true;
+        navAgent.Resume();
+        StartCoroutine(FollowPath());
+    }
+
+    public void StopAI()
+    {
+        StopCoroutine(FollowPath());
+        navAgent.Stop();
+        followingPath = false;
+    }
+
+    public void ResetAnimatorParameters() {
+        running = idling = walking = screaming = detecting = false;
+    }
+    
+    IEnumerator TryingToSpotPlayer(float time)
+    {
+        StopAI();
+        detecting = true;
+        yield return new WaitForSeconds(time);
+        
+        ResumeAI();
+        inDection = false;
+    }
+             
 }

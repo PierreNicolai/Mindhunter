@@ -17,6 +17,8 @@ public class Patrol : Sequence {
         Add<Behavior>().Update = FollowPath;
         var selector = Add<Sequence>();
         selector.Add<Condition>().CanRun = IsTargetInSight;
+        selector.Add<Behavior>().Update  = Detecting;
+        selector.Add<Condition>().CanRun = IsSpoted;
         selector.Add<Behavior>().Update = MoveToTarget;
     } 
 
@@ -24,16 +26,24 @@ public class Patrol : Sequence {
 //        Debug.Log("FollowPath");
         return Status.BhSuccess;
     }
-    
-    bool IsTargetInSight() {       
+
+    bool IsSpoted() {
+        return enemy.spoted;
+    }
+
+    Status Detecting() {    
+        enemy.startingDetection = true;
+        return Status.BhSuccess;
+    }
+
+    bool IsTargetInSight() {
+        Debug.Log("target in sight");
         return fieldOfView != null  && fieldOfView.visibleTargets != null  &&  fieldOfView.visibleTargets.Count == 1;       
     }
 
     Status MoveToTarget() {
         enemy.followingPath = false;
         enemy.SetTarget(fieldOfView.visibleTargets[0].position);
-
         return Status.BhSuccess;
-    }        
-
+    }
 }
