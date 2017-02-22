@@ -10,11 +10,27 @@ public enum PlayerVisibility
 public class Player : PersistentSingleton<Player>
 {
     public PlayerVisibility playerVisibility { get; private set; }
+    public GameObject brasMalinal;
+
+    public Animator _anim { get; private set; }
 
     void Start()
     {
+        _anim = brasMalinal.GetComponent<Animator>();
         playerVisibility = PlayerVisibility.VISIBLE;
     }
+
+    public void AttackAnimation()
+    {
+        _anim.SetBool("Shoot", true);
+    }
+
+    public void JumpAnimation()
+    {
+        _anim.SetBool("Jump", true);
+    }
+
+    public 
 
     void OnTriggerEnter(Collider other)
     {
