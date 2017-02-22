@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class Shooter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            print("clicked");
+            Player.Instance.AttackAnimation();
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactableLayer))
