@@ -20,15 +20,15 @@ public class GlowPrePass : MonoBehaviour
 		camera.targetTexture = PrePass;
 		camera.SetReplacementShader(glowShader, "Glowable");
 		Shader.SetGlobalTexture("_GlowPrePassTex", PrePass);
-
 		Shader.SetGlobalTexture("_GlowBlurredTex", Blurred);
+        
 
 		_blurMat = new Material(Shader.Find("Hidden/Blur"));
 		_blurMat.SetVector("_BlurSize", new Vector2(Blurred.texelSize.x * 1.5f, Blurred.texelSize.y * 1.5f));
 	}
 
 	void OnRenderImage(RenderTexture src, RenderTexture dst)
-	{
+	{        
 		Graphics.Blit(src, dst);
 
 		Graphics.SetRenderTarget(Blurred);
