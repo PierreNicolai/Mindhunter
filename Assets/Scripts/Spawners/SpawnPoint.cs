@@ -7,7 +7,7 @@ public class SpawnPoint : MonoBehaviour {
 
     public int SpawnPointIndex;
 
-	void OnTriggerEnter(Collider other)
+	public virtual void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {

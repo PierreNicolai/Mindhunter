@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor;
 
 public class GlowObject : MonoBehaviour
 {
-//    [TestButton("Glow", "Glow", isActiveInEditor = false)]
-//    [TestButton("UnGlow", "UnGlow", isActiveInEditor = false)]
     public Color GlowColor;
     public float LerpFactor = 10;
 
