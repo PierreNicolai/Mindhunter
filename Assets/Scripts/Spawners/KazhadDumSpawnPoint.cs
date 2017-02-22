@@ -15,22 +15,6 @@ public class KazhadDumSpawnPoint : SpawnPoint {
 
     private bool hasTriggered = false;
 
-    public override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-        if(other.tag == "Player")
-        {
-            if (!hasTriggered)
-            {
-                hasTriggered = true;
-                //Close door;
-                templePart1.SetActive(false);
-                templePart2.SetActive(true);
-                GlowManager.Instance.Reload();
-            }
-        }
-    }
-
     public override void UpdatePrefabs()
     {
         PreCollpaseToReload = ReloadPrefab(PreCollpaseToReload, PreCollapseNewInstance, true);

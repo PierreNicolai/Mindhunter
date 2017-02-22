@@ -8,11 +8,14 @@ public class GlowManager : PersistentSingleton<GlowManager>
     private List<GlowObject> glowObjects = new List<GlowObject>();
     private List<GlowObject> realtimeList = new List<GlowObject>();
 
-    public bool canGlow { get; set;   }
+    private bool lastGlowValue;
+
+    public bool canGlow { get; set; }
 
     // Use this for initialization
     void Start()
     {
+        lastGlowValue = false;
         Reload();
     }
 
@@ -20,12 +23,13 @@ public class GlowManager : PersistentSingleton<GlowManager>
     {
         glowObjects = FindObjectsOfType<GlowObject>().ToList();
         glowObjects.ForEach(g => g.UnGlow());
-        canGlow = false;
+        canGlow = lastGlowValue;
     }
 
     // Update is called once per frame
     void Update()
     {
+        lastGlowValue = canGlow;
         if (canGlow)
         {
             realtimeList = UpdateGlowList();

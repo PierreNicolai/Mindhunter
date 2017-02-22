@@ -17,10 +17,19 @@ public class PowerController : MonoBehaviour
     void Start()
     {
         glowManager = GlowManager.Instance;
-        mindwaveInterface = MindwaveInterface.Instance;
+        glowManager.canGlow = true;
+        //mindwaveInterface = MindwaveInterface.Instance;
         xray = false;
         XRayScript.SetActive(xray);
-        InvokeRepeating("UpdateMindwavesValues", 0f, 3.0f);  
+        //InvokeRepeating("UpdateMindwavesValues", 0f, 3.0f);  
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            glowManager.canGlow = !glowManager.canGlow;
+        }
     }
 
     private void UpdateMindwavesValues()
