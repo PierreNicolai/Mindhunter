@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour {
-
+    
     public GameObject newPrefabInstance;
     public GameObject prefabToReload;
 

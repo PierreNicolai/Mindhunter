@@ -8,24 +8,25 @@ public class KazhadDumSpawnPoint : SpawnPoint {
     public GameObject PreCollpaseToReload;
     public GameObject PreCollapseNewInstance;
 
-    public GameObject collapseParticles;
-
     public GameObject templePart1;
     public GameObject templePart2;
 
-    private bool hasLoaded = false;
+    public GameObject collapseParticles;
+
+    private bool hasTriggered = false;
 
     public override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
         if(other.tag == "Player")
         {
-            if (!hasLoaded)
+            if (!hasTriggered)
             {
-                //close door;
+                hasTriggered = true;
+                //Close door;
                 templePart1.SetActive(false);
                 templePart2.SetActive(true);
-                hasLoaded = true;
+                GlowManager.Instance.Reload();
             }
         }
     }
