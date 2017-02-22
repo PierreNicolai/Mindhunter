@@ -2,12 +2,13 @@
 
 public class SpawnPoint : MonoBehaviour {
 
+    [TestButton("ReloadPlates", "UpdatePrefabs", isActiveInEditor = false)]
     public GameObject newPrefabInstance;
     public GameObject prefabToReload;
 
     public int SpawnPointIndex;
 
-	public virtual void OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
