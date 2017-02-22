@@ -22,15 +22,8 @@ public class Player : PersistentSingleton<Player>
 
     public void AttackAnimation()
     {
-        _anim.SetBool("Shoot", true);
+        _anim.Play("Shoot");
     }
-
-    public void JumpAnimation()
-    {
-        _anim.SetBool("Jump", true);
-    }
-
-    public 
 
     void OnTriggerEnter(Collider other)
     {
