@@ -8,12 +8,22 @@ public class KazhadDumSpawnPoint : SpawnPoint {
     public GameObject PreCollpaseToReload;
     public GameObject PreCollapseNewInstance;
 
-    public GameObject templePart1;
-    public GameObject templePart2;
+    public GameObject porte;
 
     public GameObject collapseParticles;
 
     private bool hasTriggered = false;
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+        if (!hasTriggered)
+        {
+            porte.SetActive(true);
+            porte.GetComponent<Animator>().Play("AppearAndClose");
+            hasTriggered = true;
+        }
+    }
 
     public override void UpdatePrefabs()
     {
