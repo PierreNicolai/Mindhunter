@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.IO;
 using System.Text;
 using Jayrock.Json.Conversion;

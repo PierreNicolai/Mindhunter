@@ -17,7 +17,6 @@ public class PowerController : MonoBehaviour
     void Start()
     {
         glowManager = GlowManager.Instance;
-        glowManager.canGlow = true;
         //mindwaveInterface = MindwaveInterface.Instance;
         xray = false;
         XRayScript.SetActive(xray);
