@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour
 {
-
     [Header("Audio clips")]
     [Space(10)]
     public AudioClip detectionAudio;
@@ -44,7 +43,7 @@ public class Enemy : MonoBehaviour
     bool walking;
 
 
-    public float detectionTime = 2f;
+    public float detectionTime = 5f;
     // Behavior Tree variables
     public bool startingDetection;
     public bool inDection;
@@ -57,11 +56,12 @@ public class Enemy : MonoBehaviour
     {
         startingDetection = false;
         inDection = false;
-        followingPath = true;
-        targetIndex = 0;       
+//        followingPath = true;
+        targetIndex = 0;     
         fieldOfView = GetComponent<FieldOfView>();
         navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        StartCoroutine(FollowPath());
+//        StartCoroutine(FollowPath());
+        StartWalking();
         behaviors.Add(new Patrol(this, fieldOfView));
     }
 
@@ -71,10 +71,12 @@ public class Enemy : MonoBehaviour
         {
             behavior.Tick();
         }       	
+
         UpdateAnimator();
+
         if(startingDetection && !inDection) {
             inDection = true;
-            StartCoroutine(TryingToSpotPlayer(detectionTime));
+            StartCoroutine(SpotingPlayer(detectionTime));
         } 
     }
 
@@ -100,8 +102,7 @@ public class Enemy : MonoBehaviour
         while (true)
         {                          
             if (!followingPath)
-                break;
-                           
+                break;                           
 //            Debug.Log("FollowPath1"+Time.deltaTime);      
 //            Debug.Log("Distance"+Vector3.Distance(transform.position, currentWaypoint));
             if (Vector3.Distance(transform.position, currentWaypoint) < distanceOffset)
@@ -137,14 +138,30 @@ public class Enemy : MonoBehaviour
         running = idling = walking = screaming = detecting = false;
     }
     
-    IEnumerator TryingToSpotPlayer(float time)
+    IEnumerator SpotingPlayer(float time)
     {
+        Debug.Log("Spoting The player");
         StopAI();
         detecting = true;
-        yield return new WaitForSeconds(time);
-        
-        ResumeAI();
+        yield return new WaitForSeconds(time);   
+        // We spot the player so chase him
+        if(Player.Instance.playerVisibility == PlayerVisibility.VISIBLE) {
+            ResumeAI(); 
+            ResetAnimatorParameters();
+            spoted = true;
+        }else {
+            ResumeAI();
+            ResetAnimatorParameters();
+            spoted = false;
+        }  
+        detecting = false;
         inDection = false;
+        Debug.Log("End of spoting The player");
     }
-             
+
+    void StartWalking() {
+        ResetAnimatorParameters();
+        ResumeAI();
+        walking = true;
+    }
 }

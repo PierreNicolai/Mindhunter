@@ -2,7 +2,6 @@
 
 public class SpawnPoint : MonoBehaviour {
 
-    [TestButton("ReloadPlates", "UpdatePrefabs", isActiveInEditor = false)]
     public GameObject newPrefabInstance;
     public GameObject prefabToReload;
 

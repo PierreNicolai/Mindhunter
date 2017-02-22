@@ -32,12 +32,13 @@ public class Patrol : Sequence {
     }
 
     Status Detecting() {    
+//        Debug.LogError("Detecting");
         enemy.startingDetection = true;
         return Status.BhSuccess;
     }
 
     bool IsTargetInSight() {
-        Debug.Log("target in sight");
+//        Debug.Log("target in sight");
         return fieldOfView != null  && fieldOfView.visibleTargets != null  &&  fieldOfView.visibleTargets.Count == 1;       
     }
 
