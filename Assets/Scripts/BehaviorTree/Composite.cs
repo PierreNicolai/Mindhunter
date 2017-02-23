@@ -28,6 +28,7 @@ namespace BehaviorTreeLibrary
         {
             Children.Add(composite);
         }
+
         public T Add<T>() where T : class, IBehavior, new()
         {
             var t = new T {Parent = this};
