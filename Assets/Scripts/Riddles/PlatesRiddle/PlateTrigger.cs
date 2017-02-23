@@ -21,12 +21,6 @@ public class PlateTrigger : MonoBehaviour
 
     public void DestroyPlate()
     {
-        StartCoroutine(DestroyPlateRoutine());
-    }
-
-    public IEnumerator DestroyPlateRoutine()
-    {
-        yield return new WaitForSeconds(0.4f);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
