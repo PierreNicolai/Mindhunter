@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: d15290d929332cb4e88601fca2a87015
 folderAsset: yes
+<<<<<<< HEAD:Assets/Sprites/UI.meta
 timeCreated: 1487846284
+=======
+timeCreated: 1487844640
+>>>>>>> origin/master:Assets/Props/Lianes/Materials.meta
 licenseType: Free
 DefaultImporter:
   userData: 
