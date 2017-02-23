@@ -10,6 +10,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        public GameObject brasMalinal;
+
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -57,6 +59,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
 
+        private void PlayJumpAnimation()
+        {
+            brasMalinal.GetComponent<Animator>().Play("Jump");
+        }
 
         // Update is called once per frame
         private void Update()
@@ -116,6 +122,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (m_Jump)
                 {
                     m_MoveDir.y = m_JumpSpeed;
+                    PlayJumpAnimation();
                     PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;
