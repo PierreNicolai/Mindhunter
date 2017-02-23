@@ -36,7 +36,7 @@ public class GlowManager : PersistentSingleton<GlowManager>
             List<GlowObject> tmpList = new List<GlowObject>();
             foreach (GlowObject g in realtimeList)
             {
-                if (g.roomIndex == SpawnManager.Instance.CurrentRoom)
+                if (g.roomIndex == Player.Instance.CurrentRoom)
                     g.Glow();
                 else
                     g.UnGlow();

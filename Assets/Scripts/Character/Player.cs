@@ -12,10 +12,13 @@ public class Player : PersistentSingleton<Player>
     public PlayerVisibility playerVisibility { get; private set; }
     public GameObject brasMalinal;
 
+    public int CurrentRoom;
+
     public Animator _anim { get; private set; }
 
     void Start()
     {
+        CurrentRoom = 0;
         _anim = brasMalinal.GetComponent<Animator>();
         playerVisibility = PlayerVisibility.VISIBLE;
     }
@@ -34,7 +37,10 @@ public class Player : PersistentSingleton<Player>
                 print("hidden");
                 break;
             case "Lethal":
-                SpawnManager.Instance.Respawn();
+                if (JungleSpawnManager.Instance != null)
+                    JungleSpawnManager.Instance.Respawn();
+                else
+                    SpawnManager.Instance.Respawn();
                 break;
         }
     }
