@@ -1,33 +1,40 @@
 ﻿using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
 using UnityEngine;
-using MindHunter.Managers;
 
-public class SpawnManager : PersistentSingleton<SpawnManager>
-{
-    public SpawnPoint currentSpawn { get; private set; }
+public class JungleSpawnManager : MonoBehaviour {
+
+    public JungleSpawnPoint currentSpawn { get; private set; }
     public int CurrentRoom { get; private set; }
-   
+
+    public static JungleSpawnManager Instance { get; private set; }
+
     private bool canRespawn;
 
     [HideInInspector]
     public bool isSpawnTriggered;
-   
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         isSpawnTriggered = false;
         canRespawn = true;
-        CurrentRoom = 0;
-        Player.Instance.CurrentRoom = CurrentRoom;
+        Player.Instance.CurrentRoom = 0;
     }
 
-    public void SetCurrentSpawn(SpawnPoint point)
+    public void SetCurrentSpawn(JungleSpawnPoint point)
     {
         if (!isSpawnTriggered)
         {
-            currentSpawn = point;
-            CurrentRoom = (point.SpawnPointIndex == CurrentRoom) ? CurrentRoom - 1 : point.SpawnPointIndex;
-            Player.Instance.CurrentRoom = CurrentRoom;
+            if (point.TriggersNextScene)
+                StartCoroutine(LoadTemple());
+            else
+                currentSpawn = point;
         }
     }
 
@@ -40,17 +47,24 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
         }
     }
 
+    private IEnumerator LoadTemple()
+    {
+        UIManager.Instance.UIFadeOut();
+        yield return new WaitForSeconds(0.5f);
+        Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadSceneAsync("Main_scene");
+    }
+
     private IEnumerator InvokeRespawn()
     {
         UIManager.Instance.UIFadeOut();
         yield return new WaitForSeconds(0.5f);
         Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = false;
         yield return new WaitForSeconds(1f);
-        currentSpawn.UpdatePrefabs();
         Player.Instance.gameObject.transform.position = currentSpawn.transform.position;
         Player.Instance.gameObject.transform.localRotation = currentSpawn.transform.rotation;
         GlowManager.Instance.Reload();
-        CurrentRoom -= 1;
         UIManager.Instance.UIFadeIn();
         yield return new WaitForSeconds(0.5f);
         Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = true;
