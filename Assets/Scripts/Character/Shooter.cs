@@ -6,19 +6,18 @@ public class Shooter : MonoBehaviour
 {
     public LayerMask interactableLayer;
 
-    private bool hasShot;
+    private bool canAttack;
 
     void Start()
     {
-        hasShot = false;
+        canAttack = true;
     }
 
     void Update()
     {
-        if (!hasShot)
+        if (canAttack)
         {
-            hasShot = true;
-            StartCoroutine(ShooterCooldown());
+            canAttack = false;
             if (CrossPlatformInputManager.GetAxis("Fire1") > 0)
             {
                 Player.Instance.AttackAnimation();
@@ -37,11 +36,7 @@ public class Shooter : MonoBehaviour
                 }
             }
         }
-    }
-
-    private IEnumerator ShooterCooldown()
-    {
-        yield return new WaitForSeconds(1f);
-        hasShot = false;
+        if (CrossPlatformInputManager.GetAxis("Fire1") == 0)
+            canAttack = true;
     }
 }
