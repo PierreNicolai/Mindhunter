@@ -29,19 +29,19 @@ public class Patrol : Sequence {
     } 
 
     Status FollowPath() {
-        Debug.Log("FollowPath");
+    //    Debug.Log("FollowPath");
         return Status.BhSuccess;
     }
 
     bool IsSpoted() {
-    	Debug.Log("IsSpoted");
+    //	Debug.Log("IsSpoted");
 //    	if(enemy.spoted)
 //    		Debug.LogError("erere");
         return enemy.spoted;
     }
 
     Status Detecting() {    
-        Debug.Log("Detecting");
+    //    Debug.Log("Detecting");
 //        enemy.startingDetection = true;
 	enemy.LaunchDetection();
         return Status.BhSuccess;
@@ -49,12 +49,12 @@ public class Patrol : Sequence {
 
     bool IsTargetInSight() {
 //        Debug.Log("target in sight");
-	Debug.Log("target in sight ? "+fieldOfView != null  && fieldOfView.visibleTargets != null  &&  fieldOfView.visibleTargets.Count > 0);
+	//Debug.Log("target in sight ? "+fieldOfView != null  && fieldOfView.visibleTargets != null  &&  fieldOfView.visibleTargets.Count > 0);
         return fieldOfView != null  && fieldOfView.visibleTargets != null  &&  fieldOfView.visibleTargets.Count > 0 && !enemy.spoted;       
     }
 
     Status MoveToTarget() {
-    	Debug.Log("MoveToTarget");
+    	//Debug.Log("MoveToTarget");
         enemy.followingPath = false;
         enemy.SetTarget(Player.Instance.transform.position);
         return Status.BhSuccess;

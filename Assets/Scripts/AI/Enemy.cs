@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 	//Nav agent
 	UnityEngine.AI.NavMeshAgent navAgent;
 	//distance offset
-	float distanceOffset = 0.2f;
+	public float distanceOffset = 1f;
 	int targetIndex;
 
 	// For the animator
