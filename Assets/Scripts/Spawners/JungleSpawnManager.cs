@@ -52,7 +52,7 @@ public class JungleSpawnManager : MonoBehaviour {
         UIManager.Instance.UIFadeOut();
         yield return new WaitForSeconds(0.5f);
         Player.Instance.gameObject.GetComponent<FirstPersonController>().enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadSceneAsync("Main_scene");
     }
 
