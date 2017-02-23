@@ -9,6 +9,7 @@ public class KazhadDumSpawnPoint : SpawnPoint {
     public GameObject PreCollapseNewInstance;
 
     public GameObject porte;
+    public GameObject porte_navmeshobstacle;
 
     public GameObject collapseParticles;
 
@@ -21,6 +22,7 @@ public class KazhadDumSpawnPoint : SpawnPoint {
         {
             porte.SetActive(true);
             porte.GetComponent<Animator>().Play("AppearAndClose");
+            porte_navmeshobstacle.SetActive(true);
             hasTriggered = true;
         }
     }

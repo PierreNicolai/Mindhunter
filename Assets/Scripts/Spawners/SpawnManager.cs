@@ -30,10 +30,10 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
     private IEnumerator SpawnPlayer()
     {
         player.transform.position = DefaultSpawnPoint.position;
-        player.transform.localRotation = DefaultSpawnPoint.rotation;
         UIManager.Instance.UIFadeIn();
         yield return new WaitForSeconds(0.5f);
         player.gameObject.GetComponent<FirstPersonController>().enabled = true;
+        player.transform.localRotation = DefaultSpawnPoint.rotation;
     }
 
     public void SetCurrentSpawn(SpawnPoint point)
