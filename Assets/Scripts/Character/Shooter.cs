@@ -1,27 +1,47 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Shooter : MonoBehaviour
 {
     public LayerMask interactableLayer;
 
+    private bool hasShot;
+
+    void Start()
+    {
+        hasShot = false;
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!hasShot)
         {
-            Player.Instance.AttackAnimation();
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactableLayer))
+            hasShot = true;
+            StartCoroutine(ShooterCooldown());
+            if (CrossPlatformInputManager.GetAxis("Fire1") > 0)
             {
-                print("ray hit something");
-                GameObject collidedObj = hit.collider.gameObject;
-                print("it's : " + collidedObj.name);
-                if(collidedObj.GetComponent<Target>() != null)
+                Player.Instance.AttackAnimation();
+                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactableLayer))
                 {
-                    print("has a target component, invoking OnShot method");
-                    collidedObj.GetComponent<Target>().OnShot();
+                    print("ray hit something");
+                    GameObject collidedObj = hit.collider.gameObject;
+                    print("it's : " + collidedObj.name);
+                    if (collidedObj.GetComponent<Target>() != null)
+                    {
+                        print("has a target component, invoking OnShot method");
+                        collidedObj.GetComponent<Target>().OnShot();
+                    }
                 }
             }
         }
+    }
+
+    private IEnumerator ShooterCooldown()
+    {
+        yield return new WaitForSeconds(1f);
+        hasShot = false;
     }
 }
