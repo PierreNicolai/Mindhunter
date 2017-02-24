@@ -16,12 +16,15 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
     [HideInInspector]
     public bool isSpawnTriggered;
 
+    private int lastSpawnIndex;
+
     void Start()
     {
         player = Player.Instance;
         isSpawnTriggered = false;
         canRespawn = true;
         CurrentRoom = 0;
+        lastSpawnIndex = 0;
         player.CurrentRoom = CurrentRoom;
         StartCoroutine(SpawnPlayer());
         GlowManager.Instance.Reload();
@@ -40,10 +43,22 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
     {
         if (!isSpawnTriggered)
         {
-            currentSpawn = point;
-            CurrentRoom = (point.SpawnPointIndex == CurrentRoom) ? CurrentRoom - 1 : point.SpawnPointIndex;
-            player.CurrentRoom = CurrentRoom;
+            print("Entering room");
+            if (point.SpawnPointIndex > lastSpawnIndex) 
+            {
+                lastSpawnIndex = point.SpawnPointIndex;
+                currentSpawn = point;
+                print("You have reached next spawner");
+            }
+            player.CurrentRoom = point.SpawnPointIndex;
+            print("You are now in room " + player.CurrentRoom);
         }
+    }
+
+    public void OnSpawnExit()
+    {
+        player.CurrentRoom = 0;
+        print("Exiting room !");
     }
 
     public void Respawn()
@@ -65,7 +80,7 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
         player.gameObject.transform.position = currentSpawn.transform.position;
         player.gameObject.transform.localRotation = currentSpawn.transform.rotation;
         GlowManager.Instance.Reload();
-        CurrentRoom -= 1;
+        Player.Instance.CurrentRoom = 0;
         UIManager.Instance.UIFadeIn();
         yield return new WaitForSeconds(0.5f);
         player.gameObject.GetComponent<FirstPersonController>().enabled = true;
