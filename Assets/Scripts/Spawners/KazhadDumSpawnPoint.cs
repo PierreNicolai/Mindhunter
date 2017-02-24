@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public class KazhadDumSpawnPoint : SpawnPoint {
+public class KazhadDumSpawnPoint : SpawnPoint
+{
 
     public GameObject PostCollpaseToReload;
     public GameObject PostCollapseNewInstance;
@@ -20,10 +22,13 @@ public class KazhadDumSpawnPoint : SpawnPoint {
         base.OnTriggerEnter(other);
         if (!hasTriggered)
         {
-            porte.SetActive(true);
-            porte.GetComponent<Animator>().Play("AppearAndClose");
-            porte_navmeshobstacle.SetActive(true);
-            hasTriggered = true;
+            if (other.tag == "Player")
+            {
+                porte.SetActive(true);
+                porte.GetComponent<Animator>().Play("AppearAndClose");
+                porte_navmeshobstacle.SetActive(true);
+                hasTriggered = true;
+            }
         }
     }
 
