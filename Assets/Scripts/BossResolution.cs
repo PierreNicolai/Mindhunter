@@ -49,6 +49,7 @@ public class BossResolution : MonoBehaviour
 
     IEnumerator PlayVideoWin(float time)
     {
+	 Player.Instance.DisableFPSController();
         // Set sounds and movies accordingly to resolution
         movieScreen.enabled = true;
 
@@ -70,10 +71,13 @@ public class BossResolution : MonoBehaviour
         yield return new WaitForSeconds(creditsDuration);
         movieScreen.enabled = false;
         SceneManager.LoadScene("Menu");
+        // For further use
+	Player.Instance.EnableFPSController();
     }
 
     IEnumerator PlayVideoLose(float time)
     {
+	Player.Instance.DisableFPSController();
         movieScreen.enabled = true;
         // Set sounds and movies accordingly to resolution
 
@@ -86,8 +90,10 @@ public class BossResolution : MonoBehaviour
         Debug.Log("Movie terminated");
         loseMovie.Stop();
         SpawnManager.Instance.Respawn();
+
         yield return new WaitForSeconds(1.5f);
         movieScreen.enabled = false;
         hasTriggered = false;
+        Player.Instance.EnableFPSController();
     }
 }

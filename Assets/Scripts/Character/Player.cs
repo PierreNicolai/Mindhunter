@@ -1,5 +1,6 @@
 ﻿using MindHunter.Managers;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public enum PlayerVisibility
 {
@@ -9,8 +10,10 @@ public enum PlayerVisibility
 
 public class Player : PersistentSingleton<Player>
 {
+
     public PlayerVisibility playerVisibility { get; private set; }
     public GameObject brasMalinal;
+    private FirstPersonController fpsController;
 
     public int CurrentRoom;
 
@@ -18,9 +21,11 @@ public class Player : PersistentSingleton<Player>
 
     void Start()
     {
+	fpsController  = GetComponent<FirstPersonController>();
         CurrentRoom = 0;
         _anim = brasMalinal.GetComponent<Animator>();
         playerVisibility = PlayerVisibility.VISIBLE;
+
     }
 
     public void AttackAnimation()
@@ -65,5 +70,13 @@ public class Player : PersistentSingleton<Player>
                 print("hidden");
                 break;
         }
+    }
+
+   public void DisableFPSController() {
+    	fpsController.enabled = false;
+    }
+
+    public void EnableFPSController() {
+	fpsController.enabled = true;
     }
 }
