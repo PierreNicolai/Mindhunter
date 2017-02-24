@@ -11,16 +11,22 @@ public class PowerController : MonoBehaviour
     private GlowManager glowManager;
     private MindwaveInterface mindwaveInterface;
 
-    bool xray;
+    private bool xray;
+
+    public bool UseMindwave;
 
     // Use this for initialization
     void Start()
     {
         glowManager = GlowManager.Instance;
-        //mindwaveInterface = MindwaveInterface.Instance;
+        
         xray = false;
         XRayScript.SetActive(xray);
-        //InvokeRepeating("UpdateMindwavesValues", 0f, 3.0f);  
+        if (UseMindwave)
+        {
+            mindwaveInterface = MindwaveInterface.Instance;
+            InvokeRepeating("UpdateMindwavesValues", 0f, 3.0f);
+        }
     }
 
     void Update()
