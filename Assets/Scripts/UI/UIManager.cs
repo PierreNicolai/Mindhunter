@@ -1,14 +1,16 @@
 ﻿using MindHunter.Managers;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : PersistentSingleton<UIManager>
 {
     private Animator _anim;
 
-    public GameObject movieTexture;
+    public RawImage movieTexture;
 
     void Start()
     {
+        
         _anim = GetComponent<Animator>();
     }
 
@@ -24,6 +26,7 @@ public class UIManager : PersistentSingleton<UIManager>
 
     public void SetMovieTextureActive(bool active)
     {
-        movieTexture.SetActive(active);
+        movieTexture = GetComponentInChildren<RawImage>();
+        movieTexture.enabled = active;
     }
 }

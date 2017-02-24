@@ -17,7 +17,8 @@ public class BossResolution : MonoBehaviour {
 
 	public bool win;
 	// Use this for initialization
-	void Awake () {
+	void Start () {
+        movieScreen = UIManager.Instance.movieTexture;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +38,7 @@ public class BossResolution : MonoBehaviour {
 
 	IEnumerator PlayVideoWin(float time) {
         // Set sounds and movies accordingly to resolution
-        movieScreen.gameObject.SetActive(true);
+        UIManager.Instance.SetMovieTextureActive(true);
 
         movieAudio.clip = winAudio;
 		movieScreen.texture = winMovie as MovieTexture;
@@ -55,11 +56,12 @@ public class BossResolution : MonoBehaviour {
         movieAudio.Play();
 
         yield return new WaitForSeconds(creditsDuration);
+        UIManager.Instance.SetMovieTextureActive(false);
         SceneManager.LoadScene("Menu");
     }
 
-	IEnumerator PlayVideoLose(float time) {	
-		movieScreen.gameObject.SetActive(true);
+	IEnumerator PlayVideoLose(float time) {
+        UIManager.Instance.SetMovieTextureActive(true);
 		// Set sounds and movies accordingly to resolution
 
 		movieAudio.clip = loseAudio;
@@ -70,5 +72,6 @@ public class BossResolution : MonoBehaviour {
 		yield return new WaitForSeconds(time);
 		Debug.Log("Movie terminated");
         SpawnManager.Instance.Respawn();
+        UIManager.Instance.SetMovieTextureActive(false);
     }
 }
