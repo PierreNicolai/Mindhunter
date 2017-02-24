@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +7,10 @@ public class BossResolution : MonoBehaviour {
 
 	public AudioClip loseAudio;
 	public AudioClip winAudio;
+    public AudioClip creditsAudio;
 	public MovieTexture loseMovie;
 	public MovieTexture winMovie;
-
+    public MovieTexture creditsMovie;
 
 	public AudioSource movieAudio;
 	public RawImage movieScreen;
@@ -17,8 +18,6 @@ public class BossResolution : MonoBehaviour {
 	public bool win;
 	// Use this for initialization
 	void Awake () {
-		win = false;
-		StartCoroutine(PlayVideoWin(winMovie.duration));
 	}
 	
 	// Update is called once per frame
@@ -27,7 +26,7 @@ public class BossResolution : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if(other.Equals("Player")) {
+		if(other.tag.Equals("Player")) {
 			if(win) {
 				StartCoroutine(PlayVideoWin(winMovie.duration));
 			}else {
@@ -36,18 +35,28 @@ public class BossResolution : MonoBehaviour {
 		}
 	}
 
-	IEnumerator PlayVideoWin(float time) {			
-		// Set sounds and movies accordingly to resolution
+	IEnumerator PlayVideoWin(float time) {
+        // Set sounds and movies accordingly to resolution
+        movieScreen.gameObject.SetActive(true);
 
-		movieAudio.clip = winAudio;
+        movieAudio.clip = winAudio;
 		movieScreen.texture = winMovie as MovieTexture;
 		winMovie.Play();
 		movieAudio.Play();
 
 		yield return new WaitForSeconds(time);
 		Debug.Log("Movie terminated");
-		// Restart to last checkpoint or launch Credtis
-	}
+        //Lauch credits :
+
+        float creditsDuration = creditsMovie.duration;
+        movieAudio.clip = creditsAudio;
+        movieScreen.texture = creditsMovie;
+        creditsMovie.Play();
+        movieAudio.Play();
+
+        yield return new WaitForSeconds(creditsDuration);
+        SceneManager.LoadScene("Menu");
+    }
 
 	IEnumerator PlayVideoLose(float time) {	
 		movieScreen.gameObject.SetActive(true);
@@ -60,6 +69,6 @@ public class BossResolution : MonoBehaviour {
 
 		yield return new WaitForSeconds(time);
 		Debug.Log("Movie terminated");
-		// Restart to last checkpoint or launch Credtis
-	}
+        SpawnManager.Instance.Respawn();
+    }
 }

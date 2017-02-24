@@ -5,6 +5,8 @@ public class UIManager : PersistentSingleton<UIManager>
 {
     private Animator _anim;
 
+    public GameObject movieTexture;
+
     void Start()
     {
         _anim = GetComponent<Animator>();
@@ -18,5 +20,10 @@ public class UIManager : PersistentSingleton<UIManager>
     public void UIFadeOut()
     {
         _anim.Play("FadeOut");
+    }
+
+    public void SetMovieTextureActive(bool active)
+    {
+        movieTexture.SetActive(active);
     }
 }
