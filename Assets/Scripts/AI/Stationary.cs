@@ -1,20 +1,20 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
-using BehaviorTreeLibrary;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using BehaviorTreeLibrary;
 
-public class Patrol : Sequence
+public class Stationary : Sequence
 {
+
 	private Enemy enemy;
 	private FieldOfView fieldOfView;
 
-	public Patrol (Enemy _enemy, FieldOfView _fieldOfView)
+	public Stationary (Enemy _enemy, FieldOfView _fieldOfView)
 	{
 		enemy = _enemy;
 		fieldOfView = _fieldOfView;
-
-		Add<Behavior> ().Update = FollowPath;
+		//eating
+		Add<Behavior> ().Update = Eating;
 
 		var selector = Add<Selector> ();
                        	                      	       
@@ -24,10 +24,10 @@ public class Patrol : Sequence
 
 		var sequenceSpoted = selector.Add<Sequence> ();
 		sequenceSpoted.Add<Condition> ().CanRun = IsSpoted;
-		sequenceSpoted.Add<Behavior> ().Update = MoveToTarget;        
+		sequenceSpoted.Add<Behavior> ().Update = MoveToTarget;
 	}
 
-	Status FollowPath ()
+	Status Eating ()
 	{
 		return Status.BhSuccess;
 	}
@@ -39,7 +39,7 @@ public class Patrol : Sequence
 
 	Status Detecting ()
 	{    
-		enemy.LaunchDetection ();
+		enemy.LaunchDetectionStationary ();
 		return Status.BhSuccess;
 	}
 
@@ -50,7 +50,7 @@ public class Patrol : Sequence
 
 	Status MoveToTarget ()
 	{
-		enemy.followingPath = false;
+//		enemy.followingPath = false;
 		enemy.SetTarget (Player.Instance.transform.position);
 		return Status.BhSuccess;
 	}

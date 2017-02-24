@@ -9,9 +9,11 @@ public class Enemy : MonoBehaviour
 	[Space (10)]
 	public AudioClip detectionAudio;
 	public AudioClip screamAudio;
-	public AudioClip walkingAudio;
+//	public AudioClip walkingAudio;
+	public AudioClip runningAudio;
 
-	private AudioSource audioSource;
+	private AudioSource sfxWoot;
+
 
 	public Animator animator;
 
@@ -47,13 +49,18 @@ public class Enemy : MonoBehaviour
 	// Behavior Tree variables
 	public bool startingDetection;
 	public bool inDection;
-//	[HideInInspector]
+	//	[HideInInspector]
 	public bool spoted;
 	[HideInInspector]
 	public bool targetRangeToScream;
 
+	[Space (10)]
+	[Header("State of the woot")]
+	public bool stationary = false;
+
 	void Start ()
 	{
+		sfxWoot = GetComponent<AudioSource>();
 		spoted = false;
 		startingDetection = false;
 		inDection = false;
@@ -62,8 +69,14 @@ public class Enemy : MonoBehaviour
 		fieldOfView = GetComponent<FieldOfView> ();
 		navAgent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 //        StartCoroutine(FollowPath());
-		StartWalking ();
-		behaviors.Add (new Patrol (this, fieldOfView));
+		
+		if (stationary) {
+			StartStationary();
+			behaviors.Add (new Stationary (this, fieldOfView));	
+		} else {
+			StartWalking ();
+			behaviors.Add (new Patrol (this, fieldOfView));
+		}
 	}
 
 	void Update ()
@@ -81,6 +94,14 @@ public class Enemy : MonoBehaviour
 		if (!inDection) {
 			inDection = true;
 			StartCoroutine (SpotingPlayer (detectionTime));  
+		} 	  
+	}
+
+	public void LaunchDetectionStationary ()
+	{
+		if (!inDection) {
+			inDection = true;
+			StartCoroutine (SpotingPlayerStationary (detectionTime));  
 		} 	  
 	}
 
@@ -142,11 +163,13 @@ public class Enemy : MonoBehaviour
 
 	IEnumerator SpotingPlayer (float time)
 	{
-		Debug.Log ("Spoting The player");
 		StopAI ();
 		walking = false;
 		detecting = true;
+		sfxWoot.clip = detectionAudio;
+		PlayAudioSfx();
 		yield return new WaitForSeconds (time);   
+		StopAudioSfx();  
 		// We spot the player so chase him
 		if (Player.Instance.playerVisibility == PlayerVisibility.VISIBLE) {
 			PlayerSpoted ();          
@@ -155,7 +178,26 @@ public class Enemy : MonoBehaviour
 		}  
 		detecting = false;
 		inDection = false;
-		Debug.Log ("End of spoting The player");
+	}
+
+	IEnumerator SpotingPlayerStationary (float time)
+	{
+		idling = false;
+//		detecting = true;
+		screaming = true;
+		sfxWoot.clip = screamAudio;
+		PlayAudioSfx();
+		yield return new WaitForSeconds (time); 
+		StopAudioSfx();  
+		// We spot the player so chase him
+		if (Player.Instance.playerVisibility == PlayerVisibility.VISIBLE) {
+			PlayerSpoted ();          
+		} else {
+			PlayerUnSpotedStationary ();
+		}  
+//		detecting = false;
+		inDection = false;
+
 	}
 
 	void StartWalking ()
@@ -165,15 +207,21 @@ public class Enemy : MonoBehaviour
 		walking = true;
 	}
 
+	void StartStationary() {
+		ResetAnimatorParameters ();
+		idling = true;
+	}
+
 	public void PlayerSpoted ()
 	{
+		sfxWoot.clip = runningAudio;
+		PlayAudioSfx();
 		ResetAnimatorParameters ();
 		spoted = true;
 		running = true;
 		navAgent.speed = runningSpeed;
 		navAgent.Resume ();
 //		SetTarget(Player.Instance.transform.position);
-		Debug.Log ("Player spoted");
 	}
 
 	public void PlayerUnSpoted ()
@@ -183,6 +231,33 @@ public class Enemy : MonoBehaviour
 		spoted = false;
 		walking = true;
 		navAgent.speed = walkingSpeed;
-		Debug.Log ("Player not spoted");
+	}
+
+	public void PlayerUnSpotedStationary ()
+	{
+		ResetAnimatorParameters ();
+		spoted = false;
+		idling = true;
+	}
+
+	public void ResetStateWoots ()
+	{
+		if (!stationary) {
+			StopAI ();
+			ResumeAI ();
+			ResetAnimatorParameters ();
+			walking = true;
+			spoted = false;
+		}else {
+			
+		}
+	}
+
+	public void PlayAudioSfx() {
+		sfxWoot.Play();
+	}
+
+	public void StopAudioSfx() {
+		sfxWoot.Stop();
 	}
 }
