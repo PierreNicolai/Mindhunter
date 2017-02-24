@@ -22,6 +22,7 @@ public class PowerController : MonoBehaviour
         
         xray = false;
         XRayScript.SetActive(xray);
+        print("use mindwave : " + UseMindwave);
         if (UseMindwave)
         {
             mindwaveInterface = MindwaveInterface.Instance;
