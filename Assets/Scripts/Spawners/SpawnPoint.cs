@@ -21,6 +21,7 @@ public class SpawnPoint : MonoBehaviour {
         if (other.tag == "Player")
         {
             SpawnManager.Instance.isSpawnTriggered = false;
+            SpawnManager.Instance.OnSpawnExit();
         }
     }
 
