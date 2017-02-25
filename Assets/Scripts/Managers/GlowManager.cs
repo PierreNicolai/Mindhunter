@@ -64,7 +64,7 @@ public class GlowManager : PersistentSingleton<GlowManager>
 
         foreach (GlowObject g in glowObjects)
         {
-            if (g != null)
+            if (g != null && g.gameObject.activeInHierarchy)
                 tempList.Add(g);
         }
         return tempList;

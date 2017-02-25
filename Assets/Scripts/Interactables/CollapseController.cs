@@ -43,6 +43,7 @@ public class CollapseController : Target
         yield return new WaitForSeconds(2f);
         postCollapseEnvironment.SetActive(true);
         preCollapseEnvironment.SetActive(false);
+        GlowManager.Instance.UnglowAll();
         GlowManager.Instance.Reload();
     }
 }
