@@ -21,6 +21,7 @@ public class GlowManager : PersistentSingleton<GlowManager>
 
     public void Reload()
     {
+        glowObjects.Clear();
         glowObjects = FindObjectsOfType<GlowObject>().ToList();
         glowObjects.ForEach(g => g.UnGlow());
         canGlow = lastGlowValue;
@@ -30,10 +31,11 @@ public class GlowManager : PersistentSingleton<GlowManager>
     void Update()
     {
         lastGlowValue = canGlow;
+        realtimeList.Clear();
         if (canGlow)
         {
+            
             realtimeList = UpdateGlowList();
-            List<GlowObject> tmpList = new List<GlowObject>();
             foreach (GlowObject g in realtimeList)
             {
                 if (g.roomIndex == Player.Instance.CurrentRoom)
@@ -47,6 +49,13 @@ public class GlowManager : PersistentSingleton<GlowManager>
             realtimeList = UpdateGlowList();
             realtimeList.ForEach(g => g.UnGlow());
         }
+    }
+
+    public void UnglowAll()
+    {
+        realtimeList.Clear();
+        realtimeList = UpdateGlowList();
+        realtimeList.ForEach(g => g.UnGlow());
     }
 
     private List<GlowObject> UpdateGlowList()

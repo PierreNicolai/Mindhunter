@@ -11,9 +11,10 @@ public class UIManager : PersistentSingleton<UIManager>
     void Start()
     {
         _anim = GetComponent<Animator>();
+        InvokeRepeating("UpdateMindwaveUI", 0f, 3f);
     }
-
-    void Update()
+    
+    public void UpdateMindwaveUI()
     {
         int MindwaweTrigger = Player.Instance.GetComponent<PowerController>().attentionTrigger;
         int currentMindwaveValue = MindwaveInterface.Instance.attentionValue;

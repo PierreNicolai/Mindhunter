@@ -51,6 +51,7 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
                 print("You have reached next spawner");
             }
             player.CurrentRoom = point.SpawnPointIndex;
+            GlowManager.Instance.Reload();
             print("You are now in room " + player.CurrentRoom);
         }
     }
@@ -58,7 +59,7 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
     public void OnSpawnExit()
     {
         player.CurrentRoom = 0;
-        print("Exiting room !");
+        GlowManager.Instance.Reload();
     }
 
     public void Respawn()
@@ -86,5 +87,6 @@ public class SpawnManager : PersistentSingleton<SpawnManager>
         player.gameObject.GetComponent<FirstPersonController>().enabled = true;
         yield return new WaitForSeconds(1f);
         canRespawn = true;
+        
     }
 }
