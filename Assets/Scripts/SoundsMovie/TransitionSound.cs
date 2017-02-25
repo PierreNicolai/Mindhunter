@@ -15,17 +15,27 @@ public class TransitionSound : MonoBehaviour
 		use = false;
 	}
 
+	// Debug purposes
+//	void Update() {
+//		if(Input.GetKey(KeyCode.A) && !use) {
+//			use = true;
+//			Fade();
+//		}
+//	}
+
 	void OnTriggerEnter (Collider other)
 	{
 		if(other.tag.Equals("Player") && !use) {			
 			use = true;
+			if(outSource.volume > 0.1f)
+				return;
 			Fade();
 			Destroy(gameObject, transitionTime);
 		}
 	}
 
 
-	public void Fade() {
+	public void Fade() {		
 		StartCoroutine(FadeBGM(inSource ,1f, 0f, transitionTime));
 		StartCoroutine(FadeBGM(outSource, 0f, 1f, transitionTime));
 	}
@@ -40,6 +50,7 @@ public class TransitionSound : MonoBehaviour
 			elapsed += Time.deltaTime;
 			yield return 0;
 		}
+		audio.volume = endVolume;
 	}
 
 
